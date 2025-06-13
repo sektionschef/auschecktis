@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Heurigen Kalender Stammersdorf</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet">
+        <link
+            href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css"
+            rel="stylesheet">
+        <style>
+    body { padding: 2rem; }
+    #calendar { max-width: 900px; margin: 0 auto; }
+  </style>
+    </head>
+    <body>
+
+        <div class="container text-center">
+            <h1 class="mb-4">Heurigen Kalender Stammersdorf</h1>
+            <p>Hier finden Sie die Ausg'steckt-Zeiten vom Biohof Steindl im Jahr
+                2025.</p>
+        </div>
+
+        <div id="calendar"></div>
+
+        <!-- Scripts -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+        <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const calendarEl = document.getElementById('calendar');
+      const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'listDay',
+        locale: 'de',
+        timeZone: 'Europe/Vienna',
+          headerToolbar: {
+    left: 'prev,next today',
+    center: 'title',
+    right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+  },
+        eventSources: [
+        {
+            url: 'data/biohof_steindl_events_2025.json',
+            color: '#28a745',
+            textColor: 'white'
+        },
+        {
+            url: 'data/bartholomaeus_huette_events_2025.json',
+            color: '#007bff',
+            textColor: 'white'
+        }
+        ]
+      });
+      calendar.render();
+    });
+  </script>
+
+        <!-- Optional Analytics: GoatCounter Example -->
+        <script data-goatcounter="https://YOUR-ID.goatcounter.com/count" async
+            src="//gc.zgo.at/count.js"></script>
+
+    </body>
+</html>
