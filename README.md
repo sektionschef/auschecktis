@@ -1,4 +1,5 @@
 
+# places
 * Wieninger
 * Krenek
 * Biohof 5
@@ -11,6 +12,10 @@
 * update script with GitHub Actions - chatgpt - 
 * impressum - link github
 * intro satz - was ist dass
+
+
+font: https://fonts.google.com/specimen/UnifrakturMaguntia?preview.text=AusCheckt%20is 
+image: https://schnappen.at/oesterreich/images/stories/Bildergalerie/Heuriger/Heurigenbuschen.JPG 
 
 
 ```
