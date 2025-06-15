@@ -1,8 +1,5 @@
 
-* Almdudler Standl
-* Presshau
 * Wieninger
-* Bartholomäus 
 * Krenek
 * Biohof 5
 * Lentner karl
@@ -12,6 +9,9 @@
 * goat counter id
 * script übersiedeln
 * update script with GitHub Actions - chatgpt - 
+* impressum - link github
+* intro satz - was ist dass
+
 
 ```
 

@@ -1,9 +1,23 @@
 {
-    "Presshaus": {
+    "presshaus": {
         "label": "Presshaus",
-        "link": "https://biohof-steindl.at/",
+        "website": "https://biohof-steindl.at/",
         "link_opening_hours_page": "https://biohof-steindl.at/?p=1281",
         "comment": "",
         "location": "https://maps.app.goo.gl/vNFmAdBddrLGkxpA7"
+    },
+    "barthuette": {
+        "label": "Bartholomäus Hütte",
+        "website": "https://bartholomaeushuette.wordpress.com/",
+        "link_opening_hours_page": "https://bartholomaeushuette.wordpress.com/",
+        "comment": "",
+        "location": "https://maps.app.goo.gl/QBX2VTs7T5dtQi6i9"
+    },
+    "almdudler_standl": {
+        "label": "Bernreiters Marillengartl",
+        "website": "https://www.bernreiter.at/",
+        "link_opening_hours_page": "https://www.bernreiter.at/#marillengartl",
+        "comment": "",
+        "location": "https://maps.app.goo.gl/b5X7Qv3eLyCFCnnx6"
     }
 }
