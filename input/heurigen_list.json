@@ -1,0 +1,51 @@
+{
+    "presshaus": {
+        "label": "Presshaus",
+        "website": "https://biohof-steindl.at/",
+        "link_opening_hours_page": "https://biohof-steindl.at/?p=1281",
+        "comment": "",
+        "location": "https://maps.app.goo.gl/vNFmAdBddrLGkxpA7"
+    },
+    "barthuette": {
+        "label": "Bartholomäus Hütte",
+        "website": "https://bartholomaeushuette.wordpress.com/",
+        "link_opening_hours_page": "https://bartholomaeushuette.wordpress.com/",
+        "comment": "",
+        "location": "https://maps.app.goo.gl/QBX2VTs7T5dtQi6i9"
+    },
+    "almdudler_standl": {
+        "label": "Bernreiters Marillengartl",
+        "website": "https://www.bernreiter.at/",
+        "link_opening_hours_page": "https://www.bernreiter.at/#marillengartl",
+        "comment": "",
+        "location": "https://maps.app.goo.gl/b5X7Qv3eLyCFCnnx6"
+    },
+    "wieninger": {
+        "label": "Bernreiters Marillengartl",
+        "website": "https://heuriger-wieninger.at/",
+        "link_opening_hours_page": "https://heuriger-wieninger.at/ueber-uns/",
+        "comment": "",
+        "location": "https://maps.app.goo.gl/BVXh2eVXX8NrVKWQ7"
+    },
+    "goebel": {
+        "label": "Heuriger Helmut Krenek",
+        "website": "https://www.helmut-krenek.at/",
+        "link_opening_hours_page": "https://www.helmut-krenek.at/",
+        "comment": "",
+        "location": "https://maps.app.goo.gl/nz4UDcfQR89Ji6Fm7"
+    },
+    "biohof_nummer_5": {
+        "label": "Biohof N°5",
+        "website": "https://wein.nummer5.at/",
+        "link_opening_hours_page": "https://wein.nummer5.at/ausgsteckt-kalender/",
+        "comment": "",
+        "location": "https://maps.app.goo.gl/sCdkrf5bgXvmQER37"
+    },
+    "lentner_koarl": {
+        "label": "Buschenschank Keller am Berg",
+        "website": "https://www.keller-am-berg.at/",
+        "link_opening_hours_page": "https://www.keller-am-berg.at/",
+        "comment": "",
+        "location": "https://maps.app.goo.gl/vvD53RYnfxnHiCm98"
+    }
+}
