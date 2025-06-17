@@ -24,29 +24,19 @@ Das Zielformat ist folgendes JSON, das von FullCalendar.js als eigener Kalender 
   "title": "Presshaus",
   "start": "2025-01-17T16:00:00",
   "allDay": false,
-  "moreInfo": "https://biohof-steindl.at/",
-  "mapLink": "https://maps.app.goo.gl/vNFmAdBddrLGkxpA7"
+  "url": "https://biohof-steindl.at/",
+  "extendedProps": { "mapLink": "https://maps.app.goo.gl/vNFmAdBddrLGkxpA7" }
 }
 ```
 
-Der ***title*** wird immer mit dem ***label*** befüllt. das ***start*** Datum hängt von den Öffnungszeiten ab und wird von dir befüllt. Es kann optional auch ein ***end*** Datum eingetragen werden. ***moreInfo*** führt pro Kalendereintrag auf die Website und wird mit dem ***website*** Feld des Heurigen aus der Heurigenliste befüllt. Ähnlich verhält es sich mit dem ***mapLink***. Er stammt ebenfalls aus der Heurigenliste und wird als Link im Kalendereintrag eingefügt. Das vollständige JSON soll mit der internen Bezeichnung des Heurigen benannt und als Download angeboten werden.
+Der ***title*** wird immer mit dem ***label*** befüllt. das ***start*** Datum hängt von den Öffnungszeiten ab und wird von dir befüllt. Es kann optional auch ein ***end*** Datum eingetragen werden. ***url*** führt pro Kalendereintrag auf die Website und wird mit dem ***website*** Feld des Heurigen aus der Heurigenliste befüllt. Ähnlich verhält es sich mit dem ***mapLink***, der in ***extendenProps*** eingefügt wird. Er stammt ebenfalls aus der Heurigenliste und wird als Link im Kalendereintrag eingefügt. Das vollständige JSON soll mit der internen Bezeichnung des Heurigen benannt und als Download angeboten werden.
 
-
-# archive
-
-```
-eventClick: function(info) {
-  info.jsEvent.preventDefault(); // Prevent default link behavior
-
-  const event = info.event.extendedProps;
-
-  const html = `
-    <strong>${info.event.title}</strong><br>
-    <a href="${event.moreInfo}" target="_blank">Website</a><br>
-    <a href="${event.mapLink}" target="_blank">Map</a>
-  `;
-
-  // Example: basic alert or modal — replace this with your UI logic
-  alert(html);
-}
-```
+* Falls Zeiträume angegeben werden, verwende bitte immer genau ein genaues Zeitfenster pro Tag.
+* Falls eine tägliche Endzeit fehlt verwende bitte 23 Uhr.
+* Falls eine tägliche Startzeit fehlt verwende bitte 18 Uhr.
+* Die Zeitzone ist immer Wien, Österreich. Bitte verwende diese explizit.
+* Gib immer ***allDay:false*** pro Kalendereintrag im JSON an.
+* Liefere ein valides JSON und prüfe es zuvor mit: `JSON.parse()`.
+* Falls eine Seite nicht erreichbar ist oder 404 zurückmeldet, gib einen Fehler zurück.
+* Websites nutzen oft dt. Monatsabkürzungen („Jän“, „März“). Bitte ordne diese den Monaten zu.
+* Überprüfe auch Feiertagsregelungen. Heurige haben häufig an österreichischen Feiertagen offen.

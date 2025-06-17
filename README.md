@@ -9,7 +9,7 @@
 
 font: https://fonts.google.com/specimen/UnifrakturMaguntia?preview.text=AusCheckt%20is 
 image: https://schnappen.at/oesterreich/images/stories/Bildergalerie/Heuriger/Heurigenbuschen.JPG 
-
+ausgsteckt image. https://www.karl-lentner.com/uploads/5/8/2/9/58296093/published/ausgsteckt-april.jpg?1746690807 
 
 ```
 
