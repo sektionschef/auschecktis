@@ -34,6 +34,7 @@ Der ***title*** wird immer mit dem ***label*** befüllt. das ***start*** Datum h
 * Falls Zeiträume angegeben werden, verwende bitte immer genau ein genaues Zeitfenster pro Tag.
 * Falls eine tägliche Endzeit fehlt verwende bitte 23 Uhr.
 * Falls eine tägliche Startzeit fehlt verwende bitte 18 Uhr.
+* Folge ausschließlich den agegebenen Seiten unter ***link_opening_hours_page***.
 * Die Zeitzone ist immer Wien, Österreich. Bitte verwende diese explizit.
 * Gib immer ***allDay:false*** pro Kalendereintrag im JSON an.
 * Liefere ein valides JSON und prüfe es zuvor mit: `JSON.parse()`.

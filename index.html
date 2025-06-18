@@ -32,6 +32,7 @@
       const calendarEl = document.getElementById('calendar');
       const calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'listDay',
+        firstDay: 1, // 0 = Sonntag, 1 = Montag, 2 = Dienstag, usw.
         locale: 'de',
         timeZone: 'Europe/Vienna',
           headerToolbar: {
