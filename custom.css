@@ -1,0 +1,97 @@
+:root {
+    --bs-primary: #457c43 !important;
+    /* little effect */
+    --primary-color: #457c43;
+    --active-button: #3b5f3a;
+    --hover-button: #5f975d;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+#main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px;
+    flex: 1;
+}
+
+h1 {
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 4rem;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.border-primary {
+    border-color: var(--primary-color) !important;
+}
+
+/* Toolbar-Title */
+.fc .fc-toolbar-title {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+/* Toolbar-Buttons anpassen */
+.fc .fc-button-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.fc .fc-button-primary:hover {
+    background-color: var(--hover-button);
+    border-color: var(--hover-button);
+}
+
+/* --fc-button-bg-color */
+
+/* Aktiver Button (z. B. listDay hervorgehoben) */
+.fc .fc-button-primary.fc-button-active {
+    background-color: var(--active-button) !important;
+    border-color: var(--active-button) !important;
+}
+
+
+.fc-list-day-text,
+.fc-list-day-side-text {
+    text-decoration: none !important;
+    color: black !important;
+}
+
+a {
+    color: var(--primary-color) !important;
+}
+
+/* .fc .fc-list-event-title a {
+    text-decoration: underline;
+} */
+
+/* Heutiger Tag in Kalenderansichten */
+/* .fc .fc-day-today {
+    background-color: #fff8f5;
+} */
+
+/* Event-Farben entfernen (optional) */
+/* .fc-event {
+    background-color: transparent !important;
+    border: none !important;
+    color: inherit !important;
+} */
+
+/* Dot in listView ausblenden */
+.fc-list-event-dot {
+    display: none !important;
+}

@@ -19,47 +19,51 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         views: {
             listDay: {
-                titleFormat: { weekday: 'short', month: 'short', day: 'numeric' }
+                // titleFormat: { weekday: 'short', month: 'short', day: 'numeric' }
+                titleFormat: { month: 'short', day: 'numeric' }
             },
             listWeek: {
                 titleFormat: { month: 'short', day: 'numeric' }
             }
         },
+        /* ➊  Kalender soll so hoch sein wie der Inhalt  */
+        height: 'auto',          // oder contentHeight: 'auto'
+        handleWindowResize: true, // wächst mit, wenn Fenster größer/kleiner wird
         eventSources: [
             {
                 url: 'data/almdudler_standl.json',
-                color: '#a72828',
-                textColor: 'white'
+                // color: '#a72828',
+                // textColor: 'white'
             },
             {
                 url: 'data/barthuette.json',
-                color: '#00ffff',
-                textColor: 'white'
+                // color: '#00ffff',
+                // textColor: 'white'
             },
             {
                 url: 'data/biohof_nummer_5.json',
-                color: '#236415',
-                textColor: 'white'
+                // color: '#236415',
+                // textColor: 'white'
             },
             {
                 url: 'data/goebel.json',
-                color: '#181447',
-                textColor: 'white'
+                // color: '#181447',
+                // textColor: 'white'
             },
             {
                 url: 'data/presshaus.json',
-                color: '#007bff',
-                textColor: 'white'
+                // color: '#007bff',
+                // textColor: 'white'
             },
             {
                 url: 'data/wieninger.json',
-                color: '#3e5a3e',
-                textColor: 'white'
+                // color: '#3e5a3e',
+                // textColor: 'white'
             },
             {
                 url: 'data/lentner_koarl.json',
-                color: '#f3a641',
-                textColor: 'white'
+                // color: '#f3a641',
+                // textColor: 'white'
             }
 
         ]

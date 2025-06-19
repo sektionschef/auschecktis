@@ -3,6 +3,8 @@
 still in beta.
 
 # tasks
+* maps link
+* footer unten schmal
 * update script with GitHub Actions - chatgpt - 
 
 
