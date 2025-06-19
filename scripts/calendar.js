@@ -17,6 +17,14 @@ document.addEventListener('DOMContentLoaded', function () {
             listWeek: 'Woche',
             today: "heute",
         },
+        views: {
+            listDay: {
+                titleFormat: { weekday: 'short', month: 'short', day: 'numeric' }
+            },
+            listWeek: {
+                titleFormat: { month: 'short', day: 'numeric' }
+            }
+        },
         eventSources: [
             {
                 url: 'data/almdudler_standl.json',
