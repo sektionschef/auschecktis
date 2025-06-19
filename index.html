@@ -20,11 +20,11 @@
 
     <style>
         body { padding: 2rem; }
-        #calendar { max-width: 900px; margin: 0 auto; }
+        #calendar { max-width: 900px; margin: 0 auto; margin-top: 50px; }
 
         h1 {
             font-family: 'UnifrakturCook', cursive;
-            font-size: 6rem;
+            font-size: 4rem;
             font-weight: 700;
             font-style: normal;
         }
@@ -35,10 +35,15 @@
 
         <div class="container text-center">
             <h1 class="mb-4">AusCheckt is</h1>
-            <p>Dieser Heurigen Kalender für Stammersdorf holt sich die Öffnungszeiten einzelner Heurigen in regelmäßigen Abständen. So hast du schnell ausgecheckt, welcher Heurige offen hat.</p>
+        </div>
+        
+        <div class="container text-center">
+            <p>Dieser Heurigen Kalender für <strong>Stammersdorf</strong> holt sich die Öffnungszeiten einzelner Heurigen von ihren Webseiten in regelmäßigen Abständen. So hast du schnell ausgecheckt, welcher Heurige offen hat.</p>
         </div>
 
-        <div id="calendar"></div>
+        <div id="calendar">
+
+        </div>
 
         <!-- FullCalendar JS -->
         <script
