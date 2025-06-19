@@ -14,22 +14,22 @@ document.addEventListener('DOMContentLoaded', function () {
         eventSources: [
             {
                 url: 'data/almdudler_standl.json',
-                color: '#28a745',
+                color: '#a72828',
                 textColor: 'white'
             },
             {
                 url: 'data/barthuette.json',
-                color: '#007bff',
+                color: '#00ffff',
                 textColor: 'white'
             },
             {
                 url: 'data/biohof_nummer_5.json',
-                color: '#007bff',
+                color: '#236415',
                 textColor: 'white'
             },
             {
                 url: 'data/goebel.json',
-                color: '#007bff',
+                color: '#181447',
                 textColor: 'white'
             },
             {
@@ -39,12 +39,12 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             {
                 url: 'data/wieninger.json',
-                color: '#007bff',
+                color: '#3e5a3e',
                 textColor: 'white'
             },
             {
                 url: 'data/lentner_koarl.json',
-                color: '#007bff',
+                color: '#f3a641',
                 textColor: 'white'
             }
 

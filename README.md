@@ -1,10 +1,9 @@
+# AusCheckt Is
 
+still in beta.
 
 # tasks
-* script übersiedeln
 * update script with GitHub Actions - chatgpt - 
-* impressum - link github
-* intro satz - was ist dass
 
 
 image: https://schnappen.at/oesterreich/images/stories/Bildergalerie/Heuriger/Heurigenbuschen.JPG 
