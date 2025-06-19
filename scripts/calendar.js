@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', function () {
     const calendarEl = document.getElementById('calendar');
 
@@ -66,7 +68,34 @@ document.addEventListener('DOMContentLoaded', function () {
                 // textColor: 'white'
             }
 
-        ]
+        ],
+
+        eventDidMount: function (info) {
+            // Only apply to list view events
+            if (info.view.type.startsWith('list')) {
+                const { mapLink } = info.event.extendedProps;
+
+                if (mapLink) {
+                    const button = document.createElement('a');
+                    button.href = mapLink;
+                    button.textContent = 'Map';
+                    button.target = '_blank';
+                    button.rel = 'noopener noreferrer';
+                    // button.className = 'btn btn-sm btn-outline-secondary ms-2';
+                    button.className = 'btn btn-sm btn-outline-secondary ms-2';
+
+                    // 🛡 prevent event row click from hijacking the button
+                    button.addEventListener('click', function (ev) {
+                        ev.stopPropagation();
+                    });
+
+                    const titleEl = info.el.querySelector('.fc-list-event-title');
+                    if (titleEl) {
+                        titleEl.appendChild(button);
+                    }
+                }
+            }
+        }
     });
 
     calendar.render();
