@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const calendarEl = document.getElementById('calendar');
 
     const calendar = new FullCalendar.Calendar(calendarEl, {
+        themeSystem: 'bootstrap5',
         initialView: 'listDay',
         firstDay: 1, // Montag
         locale: 'de',
@@ -9,7 +10,12 @@ document.addEventListener('DOMContentLoaded', function () {
         headerToolbar: {
             left: 'prev,next today',
             center: 'title',
-            right: 'timeGridWeek,listWeek'
+            right: 'listDay,listWeek'
+        },
+        buttonText: {
+            listDay: 'Tag',
+            listWeek: 'Woche',
+            today: "heute",
         },
         eventSources: [
             {
