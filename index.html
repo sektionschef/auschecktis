@@ -1,81 +1,53 @@
 <!DOCTYPE html>
 <html lang="de">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AusCheckt is</title>
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-            rel="stylesheet">
-        <link
-            href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css"
-            rel="stylesheet">
-        <style>
-    body { padding: 2rem; }
-    #calendar { max-width: 900px; margin: 0 auto; }
-  </style>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AusCheckt is</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet" />
+    <!-- FullCalendar CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css"
+        rel="stylesheet" />
+
+    <style>
+        body { padding: 2rem; }
+        #calendar { max-width: 900px; margin: 0 auto; }
+
+        h1 {
+            font-family: 'UnifrakturCook', cursive;
+            font-size: 6rem;
+            font-weight: 700;
+            font-style: normal;
+        }
+    </style>
+</head>
     </head>
     <body>
 
         <div class="container text-center">
             <h1 class="mb-4">AusCheckt is</h1>
-            <p>Der Heurigen Kalender für Stammersdorf</p>
+            <p>Dieser Heurigen Kalender für Stammersdorf holt sich die Öffnungszeiten einzelner Heurigen in regelmäßigen Abständen. So hast du schnell ausgecheckt, welcher Heurige offen hat.</p>
         </div>
 
         <div id="calendar"></div>
 
-        <!-- Scripts -->
+        <!-- FullCalendar JS -->
         <script
             src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
-        <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const calendarEl = document.getElementById('calendar');
-      const calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'listDay',
-        firstDay: 1, // 0 = Sonntag, 1 = Montag, 2 = Dienstag, usw.
-        locale: 'de',
-        timeZone: 'Europe/Vienna',
-          headerToolbar: {
-    left: 'prev,next today',
-    center: 'title',
-    right: 'timeGridWeek,listWeek'
-  },
-        eventSources: [
-        {
-            url: 'data/almdudler_standl.json',
-            color: '#28a745',
-            textColor: 'white'
-        },
-        {
-            url: 'data/barthuette.json',
-            color: '#007bff',
-            textColor: 'white'
-        },
-                {
-            url: 'data/biohof_nummer_5.json',
-            color: '#007bff',
-            textColor: 'white'
-        },
-                {
-            url: 'data/goebel.json',
-            color: '#007bff',
-            textColor: 'white'
-        },
-                        {
-            url: 'data/presshaus.json',
-            color: '#007bff',
-            textColor: 'white'
-        },
-                        {
-            url: 'data/wieninger.json',
-            color: '#007bff',
-            textColor: 'white'
-        },
-        ]
-      });
-      calendar.render();
-    });
-  </script>
+
+        <!-- Custom Calendar Script -->
+        <script src="scripts/calendar.js"></script>
+
+        <!-- GoatCounter -->
         <script data-goatcounter="https://auschecktis.goatcounter.com/count"
             async
             src="//gc.zgo.at/count.js"></script>

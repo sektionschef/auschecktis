@@ -17,14 +17,14 @@
         "label": "Bernreiters Marillengartl",
         "website": "https://www.bernreiter.at/",
         "link_opening_hours_page": "https://www.bernreiter.at/#marillengartl",
-        "comment": "",
+        "comment": "Dieser Heuriger hat immer Samstag und Sonntag geöffnet, ab 16 Uhr bis 22 Uhr.",
         "location": "https://maps.app.goo.gl/b5X7Qv3eLyCFCnnx6"
     },
     "wieninger": {
         "label": "Wieninger",
         "website": "https://heuriger-wieninger.at/",
         "link_opening_hours_page": "https://heuriger-wieninger.at/",
-        "comment": "",
+        "comment": "Die Öffnungszeiten auf der Website sind nicht eindeutig. Die sichere Variante ist folgende: Samstag 12:00 - 00:00 und Sonntag & Feiertags 12:00 - 22:00 Uhr",
         "location": "https://maps.app.goo.gl/BVXh2eVXX8NrVKWQ7"
     },
     "goebel": {
@@ -42,10 +42,10 @@
         "location": "https://maps.app.goo.gl/sCdkrf5bgXvmQER37"
     },
     "lentner_koarl": {
-        "label": "Buschenschank Keller am Berg",
+        "label": "Karl Lentner - Keller am Berg",
         "website": "https://www.keller-am-berg.at/",
         "link_opening_hours_page": "https://www.keller-am-berg.at/",
-        "comment": "",
+        "comment": "Die Öffnungszeiten sind Samstag, Sonntag u. Feiertag ab 14:00 Uhr",
         "location": "https://maps.app.goo.gl/vvD53RYnfxnHiCm98"
     }
 }
