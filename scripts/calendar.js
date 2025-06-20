@@ -66,8 +66,32 @@ document.addEventListener('DOMContentLoaded', function () {
                 url: 'data/lentner_koarl.json',
                 // color: '#f3a641',
                 // textColor: 'white'
+            },
+            {
+                url: 'data/leopold.json',
+                // color: '#f3a641',
+                // textColor: 'white'
+            },
+            {
+                url: 'data/helm.json',
+                // color: '#f3a641',
+                // textColor: 'white'
+            },
+            {
+                url: 'data/reinbacher.json',
+                // color: '#f3a641',
+                // textColor: 'white'
+            },
+            {
+                url: 'data/klager.json',
+                // color: '#f3a641',
+                // textColor: 'white'
+            },
+            {
+                url: 'data/dornroeschenkeller.json',
+                // color: '#f3a641',
+                // textColor: 'white'
             }
-
         ],
 
         eventDidMount: function (info) {

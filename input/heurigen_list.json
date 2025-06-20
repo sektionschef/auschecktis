@@ -47,5 +47,40 @@
         "link_opening_hours_page": "https://www.keller-am-berg.at/",
         "comment": "Die Öffnungszeiten sind Samstag, Sonntag u. Feiertag ab 14:00 Uhr",
         "location": "https://maps.app.goo.gl/vvD53RYnfxnHiCm98"
+    },
+    "leopold": {
+        "label": "Winzerhof Leopold",
+        "website": "https://www.klager.at",
+        "link_opening_hours_page": "https://www.klager.at",
+        "comment": "",
+        "location": "https://maps.app.goo.gl/MQRQRNUwhp2N9krm9"
+    },
+    "reinbacher": {
+        "label": "Reinbacher",
+        "website": "http://www.stammersdorf.com/index.php/heurige/reinbacher",
+        "link_opening_hours_page": "http://www.stammersdorf.com/index.php/heurige/reinbacher",
+        "comment": "MO-FR 14:00 in folgendem Zeitraum von 13.1.-31.1. 22.4.-16.5. 2.6.-27.6. 9.6. geschl. 24.2.-28.3. 4.8.-5.9. 6.10.-7.11. / 1.12. -30.12",
+        "location": "https://maps.app.goo.gl/JGnLhrKxq3E1YwJe6"
+    },
+    "helm": {
+        "label": "Helm",
+        "website": "https://www.weingut-helm.at/",
+        "link_opening_hours_page": "https://www.weingut-helm.at/",
+        "comment": "DI-FR 15:00, SA+FT 14:30 im Zeitraum von 4.2.-5.3. 1.4.-30.4. 3.6.-28.6. 1.8.-30.8. 1.10.-1.11. 2.12.-20.12",
+        "location": "https://maps.app.goo.gl/k6FZPRdSSfdqdpVJA"
+    },
+    "klager": {
+        "label": "Gerhard Klager",
+        "website": "https://www.weingutklager.at/",
+        "link_opening_hours_page": "",
+        "comment": "MO-SO: 12:00, MI: Ruhetag im Zeitraum von 2.-31.1. 1.-2.2. 6.-9.2. 13.-16.2. 20.-23.2. 27.-28.2. 1.3.-31.3. 3.-6.4. 10.-13.4. 17.-21.4. 26.-29.4. 1.-31.5. 1.6. 5.-9.6. 12.-15.6. 19.-22.6. 26.-30.6. 1.-31.7. 1.-3.8. 23.-31.8. 1.-30.9. 3.-5.10. 10.-12.10. 17.-19.10. 24.-31.10. 1.-30.11. 4.-8.12. 11.-14.12. 26.-30.12.",
+        "location": "https://maps.app.goo.gl/kFDSYZwJ7ZJjXGkW8"
+    },
+    "dornroeschenkeller": {
+        "label": "Dornröschenkeller",
+        "website": "https://www.wienerwein.at/betrieb/4334329/dornroeschenkeller-familie-vrbicky",
+        "link_opening_hours_page": "https://www.wienerwein.at/betrieb/4334329/dornroeschenkeller-familie-vrbicky",
+        "comment": "8. März - 21. Dezember 2025 | März, April, Mai, Juli, August, Oktober, November: ab 2. Samstag 16 Tage lang geöffnet | Monaten März, April, Mai, Juli, August, Oktober, November ab 2. Samstag 16 Tage lang geöffnet. Im Dezember bis am 3. Adventsonntag. 16 Tage-Block: täglich 14.00 bis 23.00 Uhr (Montag bis Sonntag und Feiertag)",
+        "location": "https://maps.app.goo.gl/hAc5sih71HKBRAQ58"
     }
 }
