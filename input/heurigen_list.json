@@ -82,5 +82,54 @@
         "link_opening_hours_page": "https://www.wienerwein.at/betrieb/4334329/dornroeschenkeller-familie-vrbicky",
         "comment": "8. März - 21. Dezember 2025 | März, April, Mai, Juli, August, Oktober, November: ab 2. Samstag 16 Tage lang geöffnet | Monaten März, April, Mai, Juli, August, Oktober, November ab 2. Samstag 16 Tage lang geöffnet. Im Dezember bis am 3. Adventsonntag. 16 Tage-Block: täglich 14.00 bis 23.00 Uhr (Montag bis Sonntag und Feiertag)",
         "location": "https://maps.app.goo.gl/hAc5sih71HKBRAQ58"
+    },
+    "duschl": {
+        "label": "Zur Duschl",
+        "website": "https://zurduschl.at/home/",
+        "link_opening_hours_page": "https://zurduschl.at/oeffnungszeiten/",
+        "comment": "",
+        "location": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA"
+    },
+    "gustl": {
+        "label": "Zum Gustl",
+        "website": "https://manuelnoessing.com/buschenschank/",
+        "link_opening_hours_page": "",
+        "comment": "FR-S0: 12:00 im Zeitraum von Ende April bis Mitte Juli / September / Oktober",
+        "location": "https://maps.app.goo.gl/9wZRCPRvie7xRhq59"
+    },
+    "kammerer": {
+        "label": "Kammerer junior",
+        "website": "https://www.buschenschank-kammererjunior.com/",
+        "link_opening_hours_page": "https://www.buschenschank-kammererjunior.com/",
+        "comment": "Öffnungszeiten beziehen sich auf das ganze Jahr.",
+        "location": "https://maps.app.goo.gl/iuQx22fyfP7ZWwaS9"
+    },
+    "weinhandwerk": {
+        "label": "Weinhandwerk",
+        "website": "https://www.weinhandwerk.at/",
+        "link_opening_hours_page": "https://www.buschenschank-kammererjunior.com/",
+        "comment": "FR+SA: 15:00, SO: 12:00 im Zeitraum von 28.4.-19.10.",
+        "location": "https://maps.app.goo.gl/WRito6P5jyQ3UQPy9"
+    },
+    "walter": {
+        "label": "Weingut Walter",
+        "website": "https://weingut-walter-wien.at/buschenschank",
+        "link_opening_hours_page": "https://weingut-walter-wien.at/buschenschank/aussteckzeiten",
+        "comment": "",
+        "location": "https://maps.app.goo.gl/GUJzMHBan2rkDRWGA"
+    },
+    "ausblick_wien": {
+        "label": "Ausblick Wien",
+        "website": "https://www.ausblick.wien/",
+        "link_opening_hours_page": "https://www.ausblick.wien/galerie",
+        "comment": "",
+        "location": "https://maps.app.goo.gl/i7mbWDvyyxyXVZD18"
+    },
+    "christl": {
+        "label": "Zur Christl",
+        "website": "https://www.zurchristl.at/",
+        "link_opening_hours_page": "https://www.zurchristl.at/oeffnungszeiten",
+        "comment": "",
+        "location": "https://maps.app.goo.gl/AuiuvDhziTTMzGKK9"
     }
 }

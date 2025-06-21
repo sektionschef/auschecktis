@@ -99,3 +99,10 @@ a {
 .fc-list-event-dot {
     display: none !important;
 }
+
+/* Hover style: green background, white text */
+.fc .fc-list-event .btn-outline-secondary:hover {
+    background-color: var(--hover-button);
+    border-color: var(--hover-button);
+    color: white !important;
+}

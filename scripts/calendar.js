@@ -91,6 +91,41 @@ document.addEventListener('DOMContentLoaded', function () {
                 url: 'data/dornroeschenkeller.json',
                 // color: '#f3a641',
                 // textColor: 'white'
+            },
+            {
+                url: 'data/duschl.json',
+                // color: '#f3a641',
+                // textColor: 'white'
+            },
+            {
+                url: 'data/gustl.json',
+                // color: '#f3a641',
+                // textColor: 'white'
+            },
+            {
+                url: 'data/kammerer.json',
+                // color: '#f3a641',
+                // textColor: 'white'
+            },
+            {
+                url: 'data/weinhandwerk.json',
+                // color: '#f3a641',
+                // textColor: 'white'
+            },
+            {
+                url: 'data/walter.json',
+                // color: '#f3a641',
+                // textColor: 'white'
+            },
+            {
+                url: 'data/ausblick_wien.json',
+                // color: '#f3a641',
+                // textColor: 'white'
+            },
+            {
+                url: 'data/christl.json',
+                // color: '#f3a641',
+                // textColor: 'white'
             }
         ],
 
