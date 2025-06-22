@@ -3,8 +3,7 @@
 still in beta.
 
 # tasks
-* update marillengartl foto und ab 12 Uhr
-* maps link
+* update marillengartl foto 
 * footer unten schmal
 * update script with GitHub Actions - chatgpt - 
 
