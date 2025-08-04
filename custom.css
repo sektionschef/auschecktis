@@ -105,3 +105,20 @@ a {
   border-color: var(--hover-button);
   color: white !important;
 }
+
+.btn-primary {
+  background-color: #457c43 !important;
+  border-color: #457c43 !important;
+}
+
+.btn-primary:disabled,
+.btn-primary.disabled {
+  background-color: #b7cbb3 !important;
+  border-color: #b7cbb3 !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #366634 !important;
+  border-color: #366634 !important;
+}

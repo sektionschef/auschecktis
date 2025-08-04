@@ -34,9 +34,19 @@
         <div id="open-today" class="container text-center mb-4">
             <h2><span id="current-date"></span></h2>
             <div class="mb-2">
-                <button id="prev-day" class="btn btn-outline-secondary btn-sm me-2" disabled>&larr;</button>
-                <button id="next-day" class="btn btn-outline-secondary btn-sm">&rarr;</button>
-            </div>
+    <button id="prev-day" class="btn btn-primary btn-lg rounded-circle me-2 d-inline-flex align-items-center justify-content-center" style="width:2.5em; height:2.5em;" disabled title="Vortag">
+        <span class="visually-hidden">Vortag</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+        </svg>
+    </button>
+    <button id="next-day" class="btn btn-primary btn-lg rounded-circle d-inline-flex align-items-center justify-content-center" style="width:2.5em; height:2.5em;" title="Nächster Tag">
+        <span class="visually-hidden">Nächster Tag</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M4.646 14.354a.5.5 0 0 1 0-.708L10.293 8 4.646 2.354a.5.5 0 1 1 .708-.708l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708 0z"/>
+        </svg>
+    </button>
+</div>
             <div id="map" style="height: 320px; width: 100%; margin-bottom: 1em;"></div>
             <ul id="open-today-list" class="list-unstyled"></ul>
         </div>
@@ -146,7 +156,7 @@ function renderList() {
                     latlng[1],
                     `<strong>${event.title}</strong><br>
                     <a href="${event.url}" target="_blank" style="color:#457c43;text-decoration:underline;">Website</a> &middot; 
-                    <a href="${event.extendedProps.mapLink}" target="_blank" style="color:#457c43;text-decoration:underline;">Karte</a>`
+                    <a href="${event.extendedProps.mapLink}" target="_blank" style="color:#457c43;text-decoration:underline;">Google Maps</a>`
                 );
                 bounds.push(latlng);
             } else if (event.extendedProps && event.extendedProps.mapLink) {
