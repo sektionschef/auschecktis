@@ -38,7 +38,11 @@
         </div> -->
 
         <div id="open-today" class="container text-center mb-4">
-            <h2>Heute geöffnet</h2>
+            <h2>Geöffnet am <span id="current-date"></span></h2>
+            <div class="mb-2">
+                <button id="prev-day" class="btn btn-outline-secondary btn-sm me-2" disabled>&larr;</button>
+                <button id="next-day" class="btn btn-outline-secondary btn-sm">&rarr;</button>
+            </div>
             <ul id="open-today-list" class="list-unstyled"></ul>
         </div>
 
@@ -59,54 +63,95 @@
         -->
 
         <script>
-    // Add all your JSON files here
-    const jsonFiles = [
-        'data/ausblick_wien.json',
-        'data/almdudler_standl.json',
-        'data/barthuette.json',
-        'data/biohof_nummer_5.json',
-        'data/goebel.json',
-        'data/presshaus.json',
-        'data/wieninger.json',
-        'data/lentner_koarl.json',
-        'data/leopold.json',
-        'data/helm.json',
-        'data/reinbacher.json',
-        'data/klager.json',
-        'data/dornroeschenkeller.json',
-        'data/duschl.json',
-        'data/gustl.json',
-        'data/kammerer.json',
-        'data/weinhandwerk.json',
-        'data/walter.json',
-        'data/ausblick_wien.json',
-        'data/christl.json'
-    ];
+const jsonFiles = [
+    'data/ausblick_wien.json',
+    'data/almdudler_standl.json',
+    'data/barthuette.json',
+    'data/biohof_nummer_5.json',
+    'data/goebel.json',
+    'data/presshaus.json',
+    'data/wieninger.json',
+    'data/lentner_koarl.json',
+    'data/leopold.json',
+    'data/helm.json',
+    'data/reinbacher.json',
+    'data/klager.json',
+    'data/dornroeschenkeller.json',
+    'data/duschl.json',
+    'data/gustl.json',
+    'data/kammerer.json',
+    'data/weinhandwerk.json',
+    'data/walter.json',
+    'data/ausblick_wien.json',
+    'data/christl.json'
+];
 
-    const today = new Date();
-    const todayISO = today.toISOString().slice(0, 10); // YYYY-MM-DD
-    const ul = document.getElementById('open-today-list');
+const today = new Date();
+const maxDate = new Date(today);
+maxDate.setDate(today.getDate() + 7);
 
-    Promise.all(jsonFiles.map(file => fetch(file).then(r => r.json())))
-        .then(allEvents => {
-            // Flatten all events from all files
-            const events = allEvents.flat();
-            // Filter for today
-            const openToday = events.filter(event => event.start.slice(0, 10) === todayISO);
+let currentDate = new Date(today);
 
-            if (openToday.length === 0) {
-                ul.innerHTML = '<li>Heute hat kein Heuriger geöffnet.</li>';
-            } else {
-                openToday.forEach(event => {
-                    const li = document.createElement('li');
-                    li.innerHTML = `<a href="${event.url}" target="_blank">${event.title}</a>
-                        (<a href="${event.extendedProps.mapLink}" target="_blank">Karte</a>)<br>
-                        ${new Date(event.start).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} – 
-                        ${new Date(event.end).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
-                    ul.appendChild(li);
-                });
-            }
+const ul = document.getElementById('open-today-list');
+const currentDateSpan = document.getElementById('current-date');
+const prevBtn = document.getElementById('prev-day');
+const nextBtn = document.getElementById('next-day');
+
+function formatDate(date) {
+    return date.toLocaleDateString('de-AT', { weekday: 'long', year: 'numeric', month: '2-digit', day: '2-digit' });
+}
+
+function getISO(date) {
+    return date.toISOString().slice(0, 10);
+}
+
+let allEvents = [];
+
+function renderList() {
+    const currentISO = getISO(currentDate);
+    currentDateSpan.textContent = formatDate(currentDate);
+
+    // Enable/disable prev/next buttons
+    prevBtn.disabled = currentISO <= getISO(today);
+    nextBtn.disabled = currentISO >= getISO(maxDate);
+
+    // Filter for current date
+    const openToday = allEvents.filter(event => event.start.slice(0, 10) === currentISO);
+
+    ul.innerHTML = '';
+    if (openToday.length === 0) {
+        ul.innerHTML = '<li>Kein Heuriger geöffnet.</li>';
+    } else {
+        openToday.forEach(event => {
+            const li = document.createElement('li');
+            li.innerHTML = `<a href="${event.url}" target="_blank">${event.title}</a>
+                (<a href="${event.extendedProps.mapLink}" target="_blank">Karte</a>)<br>
+                ${new Date(event.start).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} – 
+                ${new Date(event.end).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+            ul.appendChild(li);
         });
+    }
+}
+
+Promise.all(jsonFiles.map(file => fetch(file).then(r => r.json())))
+    .then(results => {
+        allEvents = results.flat();
+        renderList();
+    });
+
+prevBtn.addEventListener('click', () => {
+    if (getISO(currentDate) > getISO(today)) {
+        currentDate.setDate(currentDate.getDate() - 1);
+        renderList();
+    }
+});
+
+nextBtn.addEventListener('click', () => {
+    if (getISO(currentDate) < getISO(maxDate)) {
+        currentDate.setDate(currentDate.getDate() + 1);
+        renderList();
+    }
+});
 </script>
 
 
