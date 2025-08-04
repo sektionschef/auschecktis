@@ -3,18 +3,18 @@
 still in beta.
 
 # tasks
-* update marillengartl foto 
-* footer unten schmal
-* update script with GitHub Actions - chatgpt - 
 
+- update marillengartl foto
+- footer unten schmal
+- update script with GitHub Actions - chatgpt -
 
-image: https://schnappen.at/oesterreich/images/stories/Bildergalerie/Heuriger/Heurigenbuschen.JPG 
-ausgsteckt image. https://www.karl-lentner.com/uploads/5/8/2/9/58296093/published/ausgsteckt-april.jpg?1746690807 
-
+image: https://schnappen.at/oesterreich/images/stories/Bildergalerie/Heuriger/Heurigenbuschen.JPG
+ausgsteckt image. https://www.karl-lentner.com/uploads/5/8/2/9/58296093/published/ausgsteckt-april.jpg?1746690807
 
 # Spezialfälle
 
 Stöger
+
 ```
 "stoeger": {
     "label": "Stöger",
@@ -23,9 +23,10 @@ Stöger
     "comment": "1.5.-30.8. - im Kalender, aber kenne ich nicht",
     "location": "https://maps.app.goo.gl/6St9UPESJW3xWXnU7"
 }
-``` 
+```
 
 Der Weingarten - keine Regelung für 2025 - Website noch auf 2024
+
 ```
     "weingarten": {
         "label": "Der Weingarten",
@@ -38,8 +39,6 @@ Der Weingarten - keine Regelung für 2025 - Website noch auf 2024
 
 Szüts / Suchel - gibt es noch?`
 Dreh und drink - keine Öffnungszeiten für das Jahr, nur Wochenende
-
-
 
 ```
 
@@ -67,7 +66,6 @@ jobs:
 
 ```
 
-
 # local
-python3 -m http.server 8000
 
+python3 -m http.server 8000

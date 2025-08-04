@@ -15,11 +15,7 @@
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
         rel="stylesheet" />
-    <!-- FullCalendar CSS -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css"
-        rel="stylesheet" />
-
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="custom.css">
 </head>
     </head>
@@ -34,15 +30,14 @@
             <p>Dieser Heurigenkalender zeigt die Öffnungszeiten der schönsten Heurigen <strong>Stammersdorfs</strong> - damit auscheckt is, wann ausgsteckt is.</p>
         </div>
 
-        <!-- <div id="calendar">
-        </div> -->
-
+        
         <div id="open-today" class="container text-center mb-4">
             <h2><span id="current-date"></span></h2>
             <div class="mb-2">
                 <button id="prev-day" class="btn btn-outline-secondary btn-sm me-2" disabled>&larr;</button>
                 <button id="next-day" class="btn btn-outline-secondary btn-sm">&rarr;</button>
             </div>
+            <div id="map" style="height: 320px; width: 100%; margin-bottom: 1em;"></div>
             <ul id="open-today-list" class="list-unstyled"></ul>
         </div>
 
@@ -53,14 +48,8 @@
     <small>Open-Source Projekt für Heurigen aficionados:  <img src="assets/github-mark.svg" alt="GitHub" style="height: 1em; vertical-align: middle; margin-right: 0.3em;"> <a href="https://github.com/sektionschef/auschecktis">GitHub Repo</a></small></p>
 </footer>
 
-        <!-- 
-        FullCalendar JS
-        <script
-            src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
 
-        Custom Calendar Script
-        <script src="scripts/calendar.js"></script> 
-        -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
         <script>
 const jsonFiles = [
@@ -85,6 +74,7 @@ const jsonFiles = [
     'data/ausblick_wien.json',
     'data/christl.json'
 ];
+
 
 const today = new Date();
 const maxDate = new Date(today);
@@ -131,9 +121,12 @@ function renderList() {
     const openToday = allEvents.filter(event => event.start.slice(0, 10) === currentISO);
 
     ul.innerHTML = '';
+    clearMarkers();
+
     if (openToday.length === 0) {
         ul.innerHTML = '<li>Kein Heuriger geöffnet.</li>';
     } else {
+        let bounds = [];
         openToday.forEach(event => {
             const li = document.createElement('li');
             li.innerHTML = `<a href="${event.url}" target="_blank">${event.title}</a>
@@ -141,7 +134,35 @@ function renderList() {
                 ${new Date(event.start).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} – 
                 ${new Date(event.end).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
             ul.appendChild(li);
+
+            // Add marker if possible
+            if (
+                event.extendedProps &&
+                typeof event.extendedProps.lat === "number" &&
+                typeof event.extendedProps.lng === "number"
+            ) {
+                // console.log(event.extendedProps.lat, event.extendedProps.lng);
+                const latlng = [event.extendedProps.lat, event.extendedProps.lng];
+                addMarker(
+                    latlng[0],
+                    latlng[1],
+                    `<strong>${event.title}</strong><br><a href="${event.url}" target="_blank">Website</a>`
+                );
+                bounds.push(latlng);
+            } else if (event.extendedProps && event.extendedProps.mapLink) {
+                const latlng = extractLatLng(event.extendedProps.mapLink);
+                if (latlng) {
+                    addMarker(latlng[0], latlng[1], `<strong>${event.title}</strong><br><a href="${event.url}" target="_blank">Website</a>`);
+                    bounds.push(latlng);
+                }
+            }
         });
+        // Zoom to bounds if markers exist
+        if (bounds.length > 0) {
+            map.fitBounds(bounds, {padding: [30, 30]});
+        } else {
+            map.setView([48.3006, 16.3906], 13);
+        }
     }
 }
 
@@ -164,7 +185,46 @@ nextBtn.addEventListener('click', () => {
         renderList();
     }
 });
+
+let map = L.map('map').setView([48.3006, 16.3906], 13); // Center on Stammersdorf
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+let markerGroup = L.layerGroup().addTo(map);
+
+function clearMarkers() {
+    markerGroup.clearLayers();
+}
+
+function addMarker(lat, lng, popupHtml) {
+    L.marker([lat, lng], { icon: greenIcon }).bindPopup(popupHtml).addTo(markerGroup);
+}
+
+// Helper to extract lat/lng from Google Maps short links
+function extractLatLng(mapLink) {
+    // Supports links like https://maps.app.goo.gl/...
+    // and direct Google Maps links with @lat,lng
+    try {
+        if (mapLink.includes('@')) {
+            // e.g. https://www.google.com/maps/place/.../@48.3006,16.3906,17z/
+            const match = mapLink.match(/@([0-9\.\-]+),([0-9\.\-]+)/);
+            if (match) return [parseFloat(match[1]), parseFloat(match[2])];
+        }
+        // fallback: try to resolve short links server-side or ignore
+    } catch (e) {}
+    return null;
+}
+
+const greenIcon = L.icon({
+    iconUrl: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="48" viewBox="0 0 32 48"><path fill="%23457c43" stroke="white" stroke-width="2" d="M16 2C8.268 2 2 8.268 2 16c0 10.493 12.03 28.01 12.53 28.74a2 2 0 0 0 3.94 0C17.97 44.01 30 26.493 30 16c0-7.732-6.268-14-14-14zm0 20a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/></svg>',
+    iconSize:     [32, 48],
+    iconAnchor:   [16, 47],
+    popupAnchor:  [0, -40]
+});
 </script>
+
 
 
         <!-- GoatCounter -->
