@@ -38,7 +38,7 @@
         </div> -->
 
         <div id="open-today" class="container text-center mb-4">
-            <h2>Geöffnet am <span id="current-date"></span></h2>
+            <h2><span id="current-date"></span></h2>
             <div class="mb-2">
                 <button id="prev-day" class="btn btn-outline-secondary btn-sm me-2" disabled>&larr;</button>
                 <button id="next-day" class="btn btn-outline-secondary btn-sm">&rarr;</button>
@@ -109,10 +109,22 @@ let allEvents = [];
 
 function renderList() {
     const currentISO = getISO(currentDate);
-    currentDateSpan.textContent = formatDate(currentDate);
+    const todayISO = getISO(today);
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+    const tomorrowISO = getISO(tomorrow);
+
+    // Set heading text
+    if (currentISO === todayISO) {
+        currentDateSpan.textContent = "Heute geöffnet";
+    } else if (currentISO === tomorrowISO) {
+        currentDateSpan.textContent = "Morgen geöffnet";
+    } else {
+        currentDateSpan.textContent = "Geöffnet am " + formatDate(currentDate);
+    }
 
     // Enable/disable prev/next buttons
-    prevBtn.disabled = currentISO <= getISO(today);
+    prevBtn.disabled = currentISO <= todayISO;
     nextBtn.disabled = currentISO >= getISO(maxDate);
 
     // Filter for current date
