@@ -34,8 +34,14 @@
             <p>Dieser Heurigenkalender zeigt die Öffnungszeiten der schönsten Heurigen <strong>Stammersdorfs</strong> - damit auscheckt is, wann ausgsteckt is.</p>
         </div>
 
-        <div id="calendar">
+        <!-- <div id="calendar">
+        </div> -->
+
+        <div id="open-today" class="container text-center mb-4">
+            <h2>Heute geöffnet</h2>
+            <ul id="open-today-list" class="list-unstyled"></ul>
         </div>
+
         </div>
 
         <footer class="text-center mt-5 py-4 border-top">
@@ -43,12 +49,66 @@
     <small>Open-Source Projekt für Heurigen aficionados:  <img src="assets/github-mark.svg" alt="GitHub" style="height: 1em; vertical-align: middle; margin-right: 0.3em;"> <a href="https://github.com/sektionschef/auschecktis">GitHub Repo</a></small></p>
 </footer>
 
-        <!-- FullCalendar JS -->
+        <!-- 
+        FullCalendar JS
         <script
             src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
 
-        <!-- Custom Calendar Script -->
-        <script src="scripts/calendar.js"></script>
+        Custom Calendar Script
+        <script src="scripts/calendar.js"></script> 
+        -->
+
+        <script>
+    // Add all your JSON files here
+    const jsonFiles = [
+        'data/ausblick_wien.json',
+        'data/almdudler_standl.json',
+        'data/barthuette.json',
+        'data/biohof_nummer_5.json',
+        'data/goebel.json',
+        'data/presshaus.json',
+        'data/wieninger.json',
+        'data/lentner_koarl.json',
+        'data/leopold.json',
+        'data/helm.json',
+        'data/reinbacher.json',
+        'data/klager.json',
+        'data/dornroeschenkeller.json',
+        'data/duschl.json',
+        'data/gustl.json',
+        'data/kammerer.json',
+        'data/weinhandwerk.json',
+        'data/walter.json',
+        'data/ausblick_wien.json',
+        'data/christl.json'
+    ];
+
+    const today = new Date();
+    const todayISO = today.toISOString().slice(0, 10); // YYYY-MM-DD
+    const ul = document.getElementById('open-today-list');
+
+    Promise.all(jsonFiles.map(file => fetch(file).then(r => r.json())))
+        .then(allEvents => {
+            // Flatten all events from all files
+            const events = allEvents.flat();
+            // Filter for today
+            const openToday = events.filter(event => event.start.slice(0, 10) === todayISO);
+
+            if (openToday.length === 0) {
+                ul.innerHTML = '<li>Heute hat kein Heuriger geöffnet.</li>';
+            } else {
+                openToday.forEach(event => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="${event.url}" target="_blank">${event.title}</a>
+                        (<a href="${event.extendedProps.mapLink}" target="_blank">Karte</a>)<br>
+                        ${new Date(event.start).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} – 
+                        ${new Date(event.end).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+                    ul.appendChild(li);
+                });
+            }
+        });
+</script>
+
 
         <!-- GoatCounter -->
         <script data-goatcounter="https://auschecktis.goatcounter.com/count"
