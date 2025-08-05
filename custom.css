@@ -1,3 +1,14 @@
+@font-face {
+  font-family: "Old London";
+  src: url("assets/font_old_london/OldLondon.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.old-london {
+  font-family: "Old London", serif;
+}
+
 :root {
   --bs-primary: #457c43 !important;
   /* little effect */
@@ -26,9 +37,16 @@ body {
 }
 
 h1 {
-  font-family: "UnifrakturCook", cursive;
+  /* font-family: "UnifrakturCook", cursive; */
   font-size: 4rem;
-  font-weight: 700;
+  /* font-weight: 700; */
+  font-style: normal;
+}
+
+h2 {
+  /* font-family: "UnifrakturCook", cursive; */
+  font-size: 20pt;
+  /* font-weight: 700; */
   font-style: normal;
 }
 
