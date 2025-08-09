@@ -2,15 +2,6 @@
 
 still in beta.
 
-# tasks
-
-- update marillengartl foto
-- footer unten schmal
-- update script with GitHub Actions - chatgpt -
-
-image: https://schnappen.at/oesterreich/images/stories/Bildergalerie/Heuriger/Heurigenbuschen.JPG
-ausgsteckt image. https://www.karl-lentner.com/uploads/5/8/2/9/58296093/published/ausgsteckt-april.jpg?1746690807
-
 # Spezialfälle
 
 Stöger
