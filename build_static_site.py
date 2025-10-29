@@ -498,6 +498,61 @@ class HeurigenSiteGenerator:
 </body>
 </html>'''
     
+    def copy_static_assets(self):
+        """Copy static assets to output directory"""
+        import shutil
+        
+        # List of static files to copy from assets directory
+        static_files = [
+            # CSS files
+            ('input/assets/custom.css', 'custom.css'),
+            # Icon files  
+            ('input/assets/favicon.ico', 'favicon.ico'),
+            ('input/assets/favicon.svg', 'favicon.svg'),
+            ('input/assets/favicon-96x96.png', 'favicon-96x96.png'),
+            ('input/assets/apple-touch-icon.png', 'apple-touch-icon.png'),
+            ('input/assets/web-app-manifest-192x192.png', 'web-app-manifest-192x192.png'),
+            ('input/assets/web-app-manifest-512x512.png', 'web-app-manifest-512x512.png'),
+            ('input/assets/site.webmanifest', 'site.webmanifest'),
+            # Other files
+            ('input/assets/robots.txt', 'robots.txt'),
+            ('input/assets/CNAME', 'CNAME'),
+        ]
+        
+        # Copy individual files
+        for src, dst in static_files:
+            src_path = os.path.join(self.base_dir, src)
+            dst_path = os.path.join(self.output_dir, dst)
+            
+            if os.path.exists(src_path):
+                try:
+                    shutil.copy2(src_path, dst_path)
+                    print(f"📄 Copied {dst}")
+                except Exception as e:
+                    print(f"⚠️  Warning: Could not copy {src}: {e}")
+        
+        # Copy entire assets directory (for subdirectories like fonts)
+        assets_src = os.path.join(self.base_dir, 'input', 'assets')
+        assets_dst = os.path.join(self.output_dir, 'assets')
+        if os.path.exists(assets_src):
+            try:
+                # Remove existing assets directory to avoid conflicts
+                if os.path.exists(assets_dst):
+                    shutil.rmtree(assets_dst)
+                
+                # Copy assets directory, excluding files already copied individually
+                shutil.copytree(assets_src, assets_dst, dirs_exist_ok=True)
+                print("📁 Copied assets directory")
+                
+                # Remove the duplicated files from assets (since they're copied to root)
+                for _, dst in static_files:
+                    duplicate_path = os.path.join(assets_dst, os.path.basename(dst))
+                    if os.path.exists(duplicate_path):
+                        os.remove(duplicate_path)
+                        
+            except Exception as e:
+                print(f"⚠️  Warning: Could not copy assets: {e}")
+    
     def build_site(self):
         """Build the complete static site"""
         print("🏗️  Building static site...")
@@ -527,6 +582,10 @@ class HeurigenSiteGenerator:
                 f.write(daily_html)
         
         print("📅 Generated 30 daily pages")
+        
+        # Copy static assets
+        self.copy_static_assets()
+        
         print(f"✅ Site built in {self.output_dir}/")
 
 

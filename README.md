@@ -2,6 +2,9 @@
 
 find it here [https://auschecktis.at/](https://auschecktis.at/)
 
+# Tasks
+* remove the calendar logic from prompt.md and make the json format easier (withount extendedprops)
+
 # Icons
 
 https://www.svgrepo.com/svg/479849/wine-opener-1 

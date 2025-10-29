@@ -16,16 +16,8 @@ fi
 echo "🏗️  Building static site..."
 python3 build_static_site.py
 
-# Step 3: Copy static assets
-echo "📁 Copying static assets..."
-cp -r assets generated/ 2>/dev/null || true
-cp custom.css generated/
-cp *.png generated/ 2>/dev/null || true
-cp *.ico generated/ 2>/dev/null || true
-cp *.svg generated/ 2>/dev/null || true
-cp *.webmanifest generated/ 2>/dev/null || true
-cp robots.txt generated/ 2>/dev/null || true
-cp CNAME generated/ 2>/dev/null || true
+# Step 3: Static assets are now handled by build_static_site.py
+echo "📁 Static assets copied by build_static_site.py"
 
 echo "✅ Build complete!"
 echo "📂 Static site generated in: ./generated/"
