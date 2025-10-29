@@ -1,10 +1,6 @@
 name: Build and Deploy Static Site
 
 on:
-  # Run every day at 6 AM to update with latest heurigen data
-  schedule:
-    - cron: '0 6 * * *'
-  
   # Allow manual triggering
   workflow_dispatch:
   
@@ -30,9 +26,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests beautifulsoup4 lxml
     
-    - name: Update heurigen data
-      run: |
-        python3 check_heurigen_updates.py || true
+    # Note: Automatic data update disabled - run manually when needed
+    # - name: Update heurigen data
+    #   run: |
+    #     python3 check_heurigen_updates.py || true
     
     - name: Build static site
       run: |
