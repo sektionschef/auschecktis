@@ -131,5 +131,12 @@
         "link_opening_hours_page": "https://www.zurchristl.at/oeffnungszeiten",
         "comment": "",
         "location": "https://maps.app.goo.gl/AuiuvDhziTTMzGKK9"
+    },
+    "szuets": {
+        "label": "Szürts/Suchel",
+        "website": "https://weinbausuchel.at//",
+        "link_opening_hours_page": "https://weinbausuchel.at/",
+        "comment": "",
+        "location": "https://maps.app.goo.gl/tx3geHLXfFNfKpbt7"
     }
 }
