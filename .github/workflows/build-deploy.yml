@@ -44,7 +44,7 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./generated
-        cname: auschecktis.stefangeyer.com  # Optional: your custom domain
+        cname: auschecktis.at  # Match the CNAME file
     
     - name: Commit updated data
       run: |
