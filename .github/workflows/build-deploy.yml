@@ -1,0 +1,55 @@
+name: Build and Deploy Static Site
+
+on:
+  # Run every day at 6 AM to update with latest heurigen data
+  schedule:
+    - cron: '0 6 * * *'
+  
+  # Allow manual triggering
+  workflow_dispatch:
+  
+  # Run on pushes to main branch
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests beautifulsoup4 lxml
+    
+    - name: Update heurigen data
+      run: |
+        python3 check_heurigen_updates.py || true
+    
+    - name: Build static site
+      run: |
+        chmod +x build.sh
+        ./build.sh
+    
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./generated
+        cname: auschecktis.stefangeyer.com  # Optional: your custom domain
+    
+    - name: Commit updated data
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add data/ input/
+        git diff --staged --quiet || git commit -m "Auto-update heurigen data $(date)"
+        git push || true

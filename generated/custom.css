@@ -1,0 +1,142 @@
+@font-face {
+  font-family: "Old London";
+  src: url("assets/font_old_london/OldLondon.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.old-london {
+  font-family: "Old London", serif;
+}
+
+:root {
+  --bs-primary: #457c43 !important;
+  /* little effect */
+  --primary-color: #457c43;
+  --active-button: #3b5f3a;
+  --hover-button: #5f975d;
+  --neutral-gray: #919191;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+#main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px;
+  flex: 1;
+}
+
+h1 {
+  /* font-family: "UnifrakturCook", cursive; */
+  font-size: 4rem;
+  /* font-weight: 700; */
+  font-style: normal;
+}
+
+h2 {
+  /* font-family: "UnifrakturCook", cursive; */
+  font-size: 20pt;
+  /* font-weight: 700; */
+  font-style: normal;
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.border-primary {
+  border-color: var(--primary-color) !important;
+}
+
+/* Toolbar-Title */
+.fc .fc-toolbar-title {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+/* Toolbar-Buttons anpassen */
+.fc .fc-button-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.fc .fc-button-primary:hover {
+  background-color: var(--hover-button);
+  border-color: var(--hover-button);
+}
+
+.fc .fc-button-primary:disabled {
+  background-color: var(--neutral-gray) !important;
+  border-color: var(--neutral-gray) !important;
+}
+
+/* Aktiver Button (z. B. listDay hervorgehoben) */
+.fc .fc-button-primary.fc-button-active {
+  background-color: var(--active-button) !important;
+  border-color: var(--active-button) !important;
+}
+
+.fc-list-day-text,
+.fc-list-day-side-text {
+  text-decoration: none !important;
+  color: black !important;
+}
+
+a {
+  color: var(--primary-color) !important;
+}
+
+/* .fc .fc-list-event-title a {
+    text-decoration: underline;
+} */
+
+/* Heutiger Tag in Kalenderansichten */
+/* .fc .fc-day-today {
+    background-color: #fff8f5;
+} */
+
+/* Event-Farben entfernen (optional) */
+/* .fc-event {
+    background-color: transparent !important;
+    border: none !important;
+    color: inherit !important;
+} */
+
+/* Dot in listView ausblenden */
+.fc-list-event-dot {
+  display: none !important;
+}
+
+/* Hover style: green background, white text */
+.fc .fc-list-event .btn-outline-secondary:hover {
+  background-color: var(--hover-button);
+  border-color: var(--hover-button);
+  color: white !important;
+}
+
+.btn-primary {
+  background-color: #457c43 !important;
+  border-color: #457c43 !important;
+}
+
+.btn-primary:disabled,
+.btn-primary.disabled {
+  background-color: #b7cbb3 !important;
+  border-color: #b7cbb3 !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #366634 !important;
+  border-color: #366634 !important;
+}

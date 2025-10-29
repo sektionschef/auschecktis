@@ -1,0 +1,12 @@
+# robots.txt for auscheckt.is - single-page JS app
+
+User-agent: *
+Allow: /
+
+# Optional: disallow technical paths if used
+Disallow: /admin/
+Disallow: /api/
+Disallow: /tmp/
+
+# No sitemap needed
+# Sitemap: not applicable
