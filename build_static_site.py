@@ -290,7 +290,7 @@ class HeurigenSiteGenerator:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heurigenkalender Stammersdorf mit Ausg'steckt Zeiten</title>
-    <meta name="description" content="Welcher Heurige hat ausg'steckt? Der aktuelle Heurigenkalender für Stammersdorf mit allen Öffnungszeiten, Standorte und Termine.">
+    <meta name="description" content="Welcher Heurige hat ausg'steckt? Der aktuelle Heurigenkalender für Stammersdorf mit Standorten.">
     
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
