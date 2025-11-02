@@ -571,17 +571,30 @@ class HeurigenSiteGenerator:
             f.write(index_html)
         print("📄 Generated index.html")
         
-        # Generate daily pages for next 30 days
+        # Generate daily pages for all days with events
         today = datetime.now().date()
-        for i in range(30):
-            date = today + timedelta(days=i)
-            daily_html = self.generate_daily_page(datetime.combine(date, datetime.min.time()), events)
-            filename = f"{date.strftime('%Y-%m-%d')}.html"
+        
+        # Find the latest event date
+        latest_date = today
+        for event in events:
+            event_date = datetime.fromisoformat(event['start'].replace('Z', '+00:00')).date()
+            if event_date > latest_date:
+                latest_date = event_date
+        
+        # Generate pages from today until the latest event date
+        current_date = today
+        page_count = 0
+        while current_date <= latest_date:
+            daily_html = self.generate_daily_page(datetime.combine(current_date, datetime.min.time()), events)
+            filename = f"{current_date.strftime('%Y-%m-%d')}.html"
             
             with open(os.path.join(self.output_dir, 'day', filename), 'w', encoding='utf-8') as f:
                 f.write(daily_html)
+            
+            current_date += timedelta(days=1)
+            page_count += 1
         
-        print("📅 Generated 30 daily pages")
+        print(f"📅 Generated {page_count} daily pages (until {latest_date})")
         
         # Copy static assets
         self.copy_static_assets()

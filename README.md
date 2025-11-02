@@ -35,7 +35,6 @@ Der Weingarten - keine Regelung für 2025 - Website noch auf 2024
     }
 ```
 
-Szüts / Suchel - gibt es noch?`
 Dreh und drink - keine Öffnungszeiten für das Jahr, nur Wochenende
 
 ```
@@ -64,9 +63,78 @@ jobs:
 
 ```
 
-# local
 
-python3 -m http.server 8000
-# GitHub Pages Test
-Updated: Wed Oct 29 11:20:23 CET 2025
-Test auto-deployment: Wed Oct 29 11:31:18 CET 2025
+## 🏗️ **Build Process**
+
+### **Files Structure**
+```
+├── data/                    # Individual heurigen JSON files
+├── input/
+│   └── heurigen_list.json  # Master list with coordinates
+├── generated/              # Built static site (output)
+├── build_static_site.py    # Main site generator
+├── build.sh               # Automated build script
+└── check_heurigen_updates.py # Data scraper
+```
+
+### **Build Commands**
+
+```bash
+# Full automated build
+./build.sh
+
+# Manual steps
+python3 build_static_site.py  # Generate HTML
+python3 check_heurigen_updates.py  # Update data
+```
+
+### **Generated Output**
+- `generated/index.html` - Main overview page
+- `generated/day/YYYY-MM-DD.html` - Daily event pages
+- Complete with structured data, maps, and SEO optimization
+
+## 🤖 **Automation**
+
+### **GitHub Actions**
+- **Daily builds** at 6 AM to fetch latest heurigen data
+- **Auto-deployment** to GitHub Pages
+- **Data updates** committed back to repository
+
+### **Local Development**
+```bash
+# Build and serve locally
+./build.sh
+cd generated && python3 -m http.server 8000
+```
+
+## 🎯 **Search Engine Features**
+
+### **JSON-LD Structured Data**
+Each event includes complete Schema.org markup:
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Event", 
+  "name": "Presshaus - Ausg'steckt",
+  "startDate": "2025-10-31T15:00:00",
+  "location": {
+    "@type": "Place",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 48.303258,
+      "longitude": 16.410771
+    }
+  }
+}
+```
+
+### **Microdata in HTML**
+```html
+<div itemscope itemtype="https://schema.org/Event">
+  <h4 itemprop="name">Presshaus</h4>
+  <time itemprop="startDate" datetime="2025-10-31T15:00:00">
+    ab 15:00 Uhr
+  </time>
+</div>
+```
+
