@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Static Site Generator for Auscheckt Is
+Static Site Generator for AusCheckt Is
 Converts JSON event data to SEO-optimized static HTML with structured data
 """
 
@@ -176,8 +176,8 @@ class HeurigenSiteGenerator:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heurigen {date_german} - Auscheckt Is</title>
-    <meta name="description" content="Welche Heurigen haben am {date_german} ausg'steckt? Alle Öffnungszeiten und Standorte der Stammersdorfer Heurigen.">
+    <title>AusCheckt is - Heurigenkalender für Stammersdorf am {date_german}</title>
+    <meta name="description" content="Welche Heurige in Stammersdorf haben heute ausg'steckt? Der Heurigenkalender zeigt alle Öffnungszeiten und Standorte der schönsten Heurigen Stammersdorfs. Die Informationen werden laufend von den Webseiten der Heurigen aktualisiert.">
     
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -289,8 +289,8 @@ class HeurigenSiteGenerator:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heurigenkalender Stammersdorf mit Ausg'steckt Zeiten</title>
-    <meta name="description" content="Welcher Heurige hat ausg'steckt? Der aktuelle Heurigenkalender für Stammersdorf mit Standorten.">
+    <title>AusCheckt is - Heurigenkalender für Stammersdorf</title>
+    <meta name="description" content="Welche Heurige in Stammersdorf haben heute ausg'steckt? Der Heurigenkalender zeigt alle Öffnungszeiten und Standorte der schönsten Heurigen Stammersdorfs. Die Informationen werden laufend von den Webseiten der Heurigen aktualisiert.">
     
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -307,7 +307,7 @@ class HeurigenSiteGenerator:
 <body>
     <div id="main">
         <div class="mb-5 container text-center">
-            <h1 class="text-primary old-london">Auscheckt is</h1>
+            <h1 class="text-primary old-london">AusCheckt is</h1>
             <p class="text-primary"><strong>Wo auscheckt is, wo ausg'steckt is.</strong></p>
         </div>
         <div class="container text-center mb-4">
@@ -553,6 +553,56 @@ class HeurigenSiteGenerator:
             except Exception as e:
                 print(f"⚠️  Warning: Could not copy assets: {e}")
     
+    def generate_sitemap(self, start_date, end_date):
+        """Generate XML sitemap for SEO"""
+        from datetime import datetime
+        
+        base_url = "https://auschecktis.at"
+        now = datetime.now().strftime('%Y-%m-%dT%H:%M:%S+00:00')
+        
+        sitemap_urls = []
+        
+        # Add homepage
+        sitemap_urls.append({
+            'loc': base_url,
+            'lastmod': now,
+            'changefreq': 'daily',
+            'priority': '1.0'
+        })
+        
+        # Add all daily pages
+        current_date = start_date
+        while current_date <= end_date:
+            date_str = current_date.strftime('%Y-%m-%d')
+            sitemap_urls.append({
+                'loc': f"{base_url}/day/{date_str}.html",
+                'lastmod': now,
+                'changefreq': 'daily',
+                'priority': '0.8'
+            })
+            current_date += timedelta(days=1)
+        
+        # Generate XML
+        sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
+        sitemap_xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        
+        for url in sitemap_urls:
+            sitemap_xml += '  <url>\n'
+            sitemap_xml += f'    <loc>{url["loc"]}</loc>\n'
+            sitemap_xml += f'    <lastmod>{url["lastmod"]}</lastmod>\n'
+            sitemap_xml += f'    <changefreq>{url["changefreq"]}</changefreq>\n'
+            sitemap_xml += f'    <priority>{url["priority"]}</priority>\n'
+            sitemap_xml += '  </url>\n'
+        
+        sitemap_xml += '</urlset>\n'
+        
+        # Write sitemap
+        sitemap_path = os.path.join(self.output_dir, 'sitemap.xml')
+        with open(sitemap_path, 'w', encoding='utf-8') as f:
+            f.write(sitemap_xml)
+        
+        print(f"🗺️  Generated sitemap.xml with {len(sitemap_urls)} URLs")
+    
     def build_site(self):
         """Build the complete static site"""
         print("🏗️  Building static site...")
@@ -595,6 +645,9 @@ class HeurigenSiteGenerator:
             page_count += 1
         
         print(f"📅 Generated {page_count} daily pages (until {latest_date})")
+        
+        # Generate sitemap
+        self.generate_sitemap(today, latest_date)
         
         # Copy static assets
         self.copy_static_assets()

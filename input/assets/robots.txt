@@ -8,5 +8,5 @@ Disallow: /admin/
 Disallow: /api/
 Disallow: /tmp/
 
-# No sitemap needed
-# Sitemap: not applicable
+# Sitemap for SEO
+Sitemap: https://auschecktis.at/sitemap.xml
