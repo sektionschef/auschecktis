@@ -41,43 +41,7 @@ Dreh und drink - keine Öffnungszeiten für das Jahr, nur Wochenende
 
 ```
 
-name: Check Heurigen Pages
 
-on:
-  schedule:
-    - cron: '0 8 * * 1,5'  # Every Monday & Friday at 08:00 UTC
-  workflow_dispatch:  # Allows manual triggering
-
-jobs:
-  run-script:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.11
-      - name: Install dependencies
-        run: pip install beautifulsoup4 requests
-      - name: Run checker
-        run: python check_heurigen_updates.py
-
-
-```
-
-
-## 🏗️ **Build Process**
-
-### **Files Structure**
-```
-├── data/                    # Individual heurigen JSON files
-├── input/
-│   └── heurigen_list.json  # Master list with coordinates
-├── generated/              # Built static site (output)
-├── build_static_site.py    # Main site generator
-├── build.sh               # Automated build script
-└── check_heurigen_updates.py # Data scraper
-```
 
 ### **Build Commands**
 
@@ -87,7 +51,6 @@ jobs:
 
 # Manual steps
 python3 build_static_site.py  # Generate HTML
-python3 check_heurigen_updates.py  # Update data
 ```
 
 ### **Generated Output**

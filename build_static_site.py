@@ -84,14 +84,12 @@ class HeurigenSiteGenerator:
         }
 
         # Add coordinates if available
-        if "extendedProps" in event:
-            props = event["extendedProps"]
-            if "lat" in props and "lng" in props:
-                json_ld["location"]["geo"] = {
-                    "@type": "GeoCoordinates",
-                    "latitude": props["lat"],
-                    "longitude": props["lng"],
-                }
+        if "lat" in event and "lng" in event:
+            json_ld["location"]["geo"] = {
+                "@type": "GeoCoordinates",
+                "latitude": event["lat"],
+                "longitude": event["lng"],
+            }
 
         return json.dumps(json_ld, indent=2, ensure_ascii=False)
 
@@ -119,7 +117,7 @@ class HeurigenSiteGenerator:
         """Generate HTML for a single event with microdata"""
         heurigen_data = event.get("heurigen_data", {})
         start_time = self.format_time_german(event["start"])
-        map_link = event.get("extendedProps", {}).get("mapLink", "")
+        map_link = event.get("mapLink", "")
 
         return f"""
         <div class="event-card mb-3 p-3 border rounded" itemscope itemtype="https://schema.org/Event">
@@ -168,18 +166,16 @@ class HeurigenSiteGenerator:
 
             # Prepare map markers
             for event in day_events:
-                if "extendedProps" in event:
-                    props = event["extendedProps"]
-                    if "lat" in props and "lng" in props:
-                        map_markers.append(
-                            {
-                                "lat": props["lat"],
-                                "lng": props["lng"],
-                                "title": event["title"],
-                                "url": event.get("url", "#"),
-                                "mapLink": props.get("mapLink", ""),
-                            }
-                        )
+                if "lat" in event and "lng" in event:
+                    map_markers.append(
+                        {
+                            "lat": event["lat"],
+                            "lng": event["lng"],
+                            "title": event["title"],
+                            "url": event.get("url", "#"),
+                            "mapLink": event.get("mapLink", ""),
+                        }
+                    )
         else:
             events_html = (
                 '<p class="text-muted">Kein Heuriger hat heute ausg\'steckt.</p>'
@@ -451,25 +447,17 @@ class HeurigenSiteGenerator:
             
                         // Add marker if possible
                         if (
-                            event.extendedProps &&
-                            typeof event.extendedProps.lat === "number" &&
-                            typeof event.extendedProps.lng === "number"
+                            typeof event.lat === "number" &&
+                            typeof event.lng === "number"
                         ) {{
-                            const latlng = [event.extendedProps.lat, event.extendedProps.lng];
-                            addMarker(
-                                latlng[0],
-                                latlng[1],
-                                `<strong>${{event.title}}</strong><br>
-                                <a href="${{event.url}}" target="_blank" style="color:#457c43;text-decoration:underline;">Website</a> &middot; 
-                                <a href="${{event.extendedProps.mapLink}}" target="_blank" style="color:#457c43;text-decoration:underline;">Google Maps</a>`
-                            );
-                            bounds.push(latlng);
-                        }} else if (event.extendedProps && event.extendedProps.mapLink) {{
-                            const latlng = extractLatLng(event.extendedProps.mapLink);
-                            if (latlng) {{
-                                addMarker(latlng[0], latlng[1], `<strong>${{event.title}}</strong><br><a href="${{event.url}}" target="_blank">Website</a>`);
-                                bounds.push(latlng);
+                            const latlng = [event.lat, event.lng];
+                            let popupHtml = `<strong>${{event.title}}</strong><br>
+                                <a href="${{event.url}}" target="_blank" style="color:#457c43;text-decoration:underline;">Website</a>`;
+                            if (event.mapLink) {{
+                                popupHtml += ` &middot; <a href="${{event.mapLink}}" target="_blank" style="color:#457c43;text-decoration:underline;">Google Maps</a>`;
                             }}
+                            addMarker(latlng[0], latlng[1], popupHtml);
+                            bounds.push(latlng);
                         }}
                     }});
                     // Zoom to bounds if markers exist
@@ -647,8 +635,11 @@ class HeurigenSiteGenerator:
             f.write(index_html)
         print("📄 Generated index.html")
 
-        # Generate daily pages for all days with events
+        # Generate daily pages
         today = datetime.now().date()
+
+        # Calculate end date (end of February 2026)
+        end_date = datetime(2026, 2, 28).date()
 
         # Find the latest event date
         latest_date = today
@@ -659,7 +650,29 @@ class HeurigenSiteGenerator:
             if event_date > latest_date:
                 latest_date = event_date
 
-        # Generate pages from today until the latest event date
+        # Use the later of latest_date or end_date
+        if end_date > latest_date:
+            latest_date = end_date
+
+        # Delete old HTML files (before today)
+        day_dir = os.path.join(self.output_dir, "day")
+        if os.path.exists(day_dir):
+            deleted_count = 0
+            for filename in os.listdir(day_dir):
+                if filename.endswith(".html"):
+                    # Extract date from filename
+                    try:
+                        file_date_str = filename.replace(".html", "")
+                        file_date = datetime.strptime(file_date_str, "%Y-%m-%d").date()
+                        if file_date < today:
+                            os.remove(os.path.join(day_dir, filename))
+                            deleted_count += 1
+                    except:
+                        pass
+            if deleted_count > 0:
+                print(f"🗑️  Deleted {deleted_count} old HTML pages")
+
+        # Generate pages from today until the latest date
         current_date = today
         page_count = 0
         while current_date <= latest_date:
