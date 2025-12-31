@@ -10,107 +10,118 @@ from datetime import datetime, timedelta
 from typing import Dict, List, Any
 import re
 
+
 class HeurigenSiteGenerator:
     def __init__(self, base_dir: str = "."):
         self.base_dir = base_dir
         self.data_dir = os.path.join(base_dir, "data")
         self.input_dir = os.path.join(base_dir, "input")
         self.output_dir = os.path.join(base_dir, "generated")
-        
+
         # Load master heurigen data
-        with open(os.path.join(self.input_dir, "heurigen_list.json"), 'r', encoding='utf-8') as f:
+        with open(
+            os.path.join(self.input_dir, "heurigen_list.json"), "r", encoding="utf-8"
+        ) as f:
             self.heurigen_master = json.load(f)
-    
+
     def load_all_events(self) -> List[Dict[str, Any]]:
         """Load all events from data/*.json files"""
         all_events = []
-        
+
         for filename in os.listdir(self.data_dir):
-            if filename.endswith('.json') and filename != 'archive':
-                heurigen_key = filename.replace('.json', '')
+            if filename.endswith(".json") and filename != "archive":
+                heurigen_key = filename.replace(".json", "")
                 file_path = os.path.join(self.data_dir, filename)
-                
+
                 try:
-                    with open(file_path, 'r', encoding='utf-8') as f:
+                    with open(file_path, "r", encoding="utf-8") as f:
                         events = json.load(f)
-                    
+
                     # Add heurigen metadata to each event
                     for event in events:
-                        event['heurigen_key'] = heurigen_key
+                        event["heurigen_key"] = heurigen_key
                         if heurigen_key in self.heurigen_master:
-                            event['heurigen_data'] = self.heurigen_master[heurigen_key]
+                            event["heurigen_data"] = self.heurigen_master[heurigen_key]
                         all_events.append(event)
-                        
+
                 except Exception as e:
                     print(f"Error loading {filename}: {e}")
-        
+
         # Sort events by start date
-        all_events.sort(key=lambda x: x['start'])
+        all_events.sort(key=lambda x: x["start"])
         return all_events
-    
+
     def generate_json_ld(self, event: Dict[str, Any]) -> str:
         """Generate JSON-LD structured data for an event"""
-        heurigen_data = event.get('heurigen_data', {})
-        
+        heurigen_data = event.get("heurigen_data", {})
+
         json_ld = {
             "@context": "https://schema.org",
             "@type": "Event",
             "name": f"{event['title']} - Ausg'steckt",
             "description": f"Der Heurige {event['title']} hat ausg'steckt in Stammersdorf, Wien",
-            "startDate": event['start'],
-            "endDate": event['end'],
+            "startDate": event["start"],
+            "endDate": event["end"],
             "eventStatus": "https://schema.org/EventScheduled",
             "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
             "location": {
                 "@type": "Place",
-                "name": event['title'],
+                "name": event["title"],
                 "address": {
                     "@type": "PostalAddress",
                     "addressLocality": "Wien",
                     "addressRegion": "Wien",
                     "addressCountry": "AT",
-                    "postalCode": "1210"
-                }
+                    "postalCode": "1210",
+                },
             },
-            "url": event.get('url', ''),
+            "url": event.get("url", ""),
             "organizer": {
-                "@type": "Organization", 
-                "name": event['title'],
-                "url": event.get('url', '')
-            }
+                "@type": "Organization",
+                "name": event["title"],
+                "url": event.get("url", ""),
+            },
         }
-        
+
         # Add coordinates if available
-        if 'extendedProps' in event:
-            props = event['extendedProps']
-            if 'lat' in props and 'lng' in props:
-                json_ld['location']['geo'] = {
+        if "extendedProps" in event:
+            props = event["extendedProps"]
+            if "lat" in props and "lng" in props:
+                json_ld["location"]["geo"] = {
                     "@type": "GeoCoordinates",
-                    "latitude": props['lat'],
-                    "longitude": props['lng']
+                    "latitude": props["lat"],
+                    "longitude": props["lng"],
                 }
-        
+
         return json.dumps(json_ld, indent=2, ensure_ascii=False)
-    
+
     def format_date_german(self, date_str: str) -> str:
         """Format ISO date to German format"""
-        dt = datetime.fromisoformat(date_str.replace('Z', '+00:00'))
-        weekdays = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag']
+        dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
+        weekdays = [
+            "Montag",
+            "Dienstag",
+            "Mittwoch",
+            "Donnerstag",
+            "Freitag",
+            "Samstag",
+            "Sonntag",
+        ]
         weekday = weekdays[dt.weekday()]
         return f"{weekday}, {dt.strftime('%d.%m.%Y')}"
-    
+
     def format_time_german(self, date_str: str) -> str:
         """Format ISO time to German format"""
-        dt = datetime.fromisoformat(date_str.replace('Z', '+00:00'))
-        return dt.strftime('%H:%M')
-    
+        dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
+        return dt.strftime("%H:%M")
+
     def generate_event_html(self, event: Dict[str, Any]) -> str:
         """Generate HTML for a single event with microdata"""
-        heurigen_data = event.get('heurigen_data', {})
-        start_time = self.format_time_german(event['start'])
-        map_link = event.get('extendedProps', {}).get('mapLink', '')
-        
-        return f'''
+        heurigen_data = event.get("heurigen_data", {})
+        start_time = self.format_time_german(event["start"])
+        map_link = event.get("extendedProps", {}).get("mapLink", "")
+
+        return f"""
         <div class="event-card mb-3 p-3 border rounded" itemscope itemtype="https://schema.org/Event">
             <h4 itemprop="name">{event['title']}</h4>
             <div class="event-details">
@@ -132,46 +143,52 @@ class HeurigenSiteGenerator:
                 </a>
                 {f'<a href="{map_link}" target="_blank" class="btn btn-sm btn-outline-secondary">Google Maps</a>' if map_link else ''}
             </div>
-        </div>'''
-    
+        </div>"""
+
     def generate_daily_page(self, date: datetime, events: List[Dict[str, Any]]) -> str:
         """Generate HTML page for a specific date"""
-        date_str = date.strftime('%Y-%m-%d')
+        date_str = date.strftime("%Y-%m-%d")
         date_german = self.format_date_german(date.isoformat())
-        
+
         # Filter events for this date
-        day_events = [e for e in events if e['start'].startswith(date_str)]
-        
+        day_events = [e for e in events if e["start"].startswith(date_str)]
+
         # Generate JSON-LD for all events on this day
         json_ld_list = [self.generate_json_ld(event) for event in day_events]
-        json_ld_combined = ',\n'.join(json_ld_list) if json_ld_list else ''
-        
+        json_ld_combined = ",\n".join(json_ld_list) if json_ld_list else ""
+
         # Generate event HTML
-        events_html = ''
+        events_html = ""
         map_markers = []
-        
+
         if day_events:
-            events_html = '\n'.join([self.generate_event_html(event) for event in day_events])
-            
+            events_html = "\n".join(
+                [self.generate_event_html(event) for event in day_events]
+            )
+
             # Prepare map markers
             for event in day_events:
-                if 'extendedProps' in event:
-                    props = event['extendedProps']
-                    if 'lat' in props and 'lng' in props:
-                        map_markers.append({
-                            'lat': props['lat'],
-                            'lng': props['lng'],
-                            'title': event['title'],
-                            'url': event.get('url', '#'),
-                            'mapLink': props.get('mapLink', '')
-                        })
+                if "extendedProps" in event:
+                    props = event["extendedProps"]
+                    if "lat" in props and "lng" in props:
+                        map_markers.append(
+                            {
+                                "lat": props["lat"],
+                                "lng": props["lng"],
+                                "title": event["title"],
+                                "url": event.get("url", "#"),
+                                "mapLink": props.get("mapLink", ""),
+                            }
+                        )
         else:
-            events_html = '<p class="text-muted">Kein Heuriger hat heute ausg\'steckt.</p>'
-        
+            events_html = (
+                '<p class="text-muted">Kein Heuriger hat heute ausg\'steckt.</p>'
+            )
+
         # Generate map JavaScript
         map_js = self.generate_map_js(map_markers)
-        
-        html_template = f'''<!DOCTYPE html>
+
+        html_template = f"""<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -230,31 +247,33 @@ class HeurigenSiteGenerator:
         {map_js}
     </script>
 </body>
-</html>'''
-        
+</html>"""
+
         return html_template
-    
+
     def generate_map_js(self, markers: List[Dict[str, Any]]) -> str:
         """Generate JavaScript for Leaflet map"""
         if not markers:
-            return ''
-        
+            return ""
+
         markers_js = []
         for marker in markers:
             popup_html = f"""<strong>{marker['title']}</strong><br>
             <a href="{marker['url']}" target="_blank" style="color:#457c43;text-decoration:underline;">Website</a>"""
-            if marker.get('mapLink'):
+            if marker.get("mapLink"):
                 popup_html += f""" &middot; 
                 <a href="{marker['mapLink']}" target="_blank" style="color:#457c43;text-decoration:underline;">Google Maps</a>"""
-            
-            markers_js.append(f"""
+
+            markers_js.append(
+                f"""
             L.marker([{marker['lat']}, {marker['lng']}], {{icon: greenIcon}})
                 .bindPopup(`{popup_html}`)
-                .addTo(map);""")
-        
-        bounds = [[m['lat'], m['lng']] for m in markers]
-        
-        return f'''
+                .addTo(map);"""
+            )
+
+        bounds = [[m["lat"], m["lng"]] for m in markers]
+
+        return f"""
         // Initialize map
         const map = L.map('map').setView([48.3006, 16.3906], 13);
         
@@ -275,16 +294,16 @@ class HeurigenSiteGenerator:
         
         // Fit bounds if multiple markers
         {f"map.fitBounds({bounds}, {{padding: [20, 20]}});" if len(markers) > 1 else ""}
-        '''
-    
+        """
+
     def generate_index_page(self, events: List[Dict[str, Any]]) -> str:
         """Generate main index page with interactive map and date navigation"""
         today = datetime.now().date()
-        
+
         # Generate all events data as JSON for JavaScript
         events_json = json.dumps(events, ensure_ascii=False, indent=2)
-        
-        return f'''<!DOCTYPE html>
+
+        return f"""<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -496,162 +515,175 @@ class HeurigenSiteGenerator:
        async
        src="//gc.zgo.at/count.js"></script>
 </body>
-</html>'''
-    
+</html>"""
+
     def copy_static_assets(self):
         """Copy static assets to output directory"""
         import shutil
-        
+
         # List of static files to copy from assets directory
         static_files = [
             # CSS files
-            ('input/assets/custom.css', 'custom.css'),
-            # Icon files  
-            ('input/assets/favicon.ico', 'favicon.ico'),
-            ('input/assets/favicon.svg', 'favicon.svg'),
-            ('input/assets/favicon-96x96.png', 'favicon-96x96.png'),
-            ('input/assets/apple-touch-icon.png', 'apple-touch-icon.png'),
-            ('input/assets/web-app-manifest-192x192.png', 'web-app-manifest-192x192.png'),
-            ('input/assets/web-app-manifest-512x512.png', 'web-app-manifest-512x512.png'),
-            ('input/assets/site.webmanifest', 'site.webmanifest'),
+            ("input/assets/custom.css", "custom.css"),
+            # Icon files
+            ("input/assets/favicon.ico", "favicon.ico"),
+            ("input/assets/favicon.svg", "favicon.svg"),
+            ("input/assets/favicon-96x96.png", "favicon-96x96.png"),
+            ("input/assets/apple-touch-icon.png", "apple-touch-icon.png"),
+            (
+                "input/assets/web-app-manifest-192x192.png",
+                "web-app-manifest-192x192.png",
+            ),
+            (
+                "input/assets/web-app-manifest-512x512.png",
+                "web-app-manifest-512x512.png",
+            ),
+            ("input/assets/site.webmanifest", "site.webmanifest"),
             # Other files
-            ('input/assets/robots.txt', 'robots.txt'),
-            ('input/assets/CNAME', 'CNAME'),
+            ("input/assets/robots.txt", "robots.txt"),
+            ("input/assets/CNAME", "CNAME"),
         ]
-        
+
         # Copy individual files
         for src, dst in static_files:
             src_path = os.path.join(self.base_dir, src)
             dst_path = os.path.join(self.output_dir, dst)
-            
+
             if os.path.exists(src_path):
                 try:
                     shutil.copy2(src_path, dst_path)
                     print(f"📄 Copied {dst}")
                 except Exception as e:
                     print(f"⚠️  Warning: Could not copy {src}: {e}")
-        
+
         # Copy entire assets directory (for subdirectories like fonts)
-        assets_src = os.path.join(self.base_dir, 'input', 'assets')
-        assets_dst = os.path.join(self.output_dir, 'assets')
+        assets_src = os.path.join(self.base_dir, "input", "assets")
+        assets_dst = os.path.join(self.output_dir, "assets")
         if os.path.exists(assets_src):
             try:
                 # Remove existing assets directory to avoid conflicts
                 if os.path.exists(assets_dst):
                     shutil.rmtree(assets_dst)
-                
+
                 # Copy assets directory, excluding files already copied individually
                 shutil.copytree(assets_src, assets_dst, dirs_exist_ok=True)
                 print("📁 Copied assets directory")
-                
+
                 # Remove the duplicated files from assets (since they're copied to root)
                 for _, dst in static_files:
                     duplicate_path = os.path.join(assets_dst, os.path.basename(dst))
                     if os.path.exists(duplicate_path):
                         os.remove(duplicate_path)
-                        
+
             except Exception as e:
                 print(f"⚠️  Warning: Could not copy assets: {e}")
-    
+
     def generate_sitemap(self, start_date, end_date):
         """Generate XML sitemap for SEO"""
         from datetime import datetime
-        
+
         base_url = "https://auschecktis.at"
-        now = datetime.now().strftime('%Y-%m-%dT%H:%M:%S+00:00')
-        
+        now = datetime.now().strftime("%Y-%m-%dT%H:%M:%S+00:00")
+
         sitemap_urls = []
-        
+
         # Add homepage
-        sitemap_urls.append({
-            'loc': base_url,
-            'lastmod': now,
-            'changefreq': 'daily',
-            'priority': '1.0'
-        })
-        
+        sitemap_urls.append(
+            {"loc": base_url, "lastmod": now, "changefreq": "daily", "priority": "1.0"}
+        )
+
         # Add all daily pages
         current_date = start_date
         while current_date <= end_date:
-            date_str = current_date.strftime('%Y-%m-%d')
-            sitemap_urls.append({
-                'loc': f"{base_url}/day/{date_str}.html",
-                'lastmod': now,
-                'changefreq': 'daily',
-                'priority': '0.8'
-            })
+            date_str = current_date.strftime("%Y-%m-%d")
+            sitemap_urls.append(
+                {
+                    "loc": f"{base_url}/day/{date_str}.html",
+                    "lastmod": now,
+                    "changefreq": "daily",
+                    "priority": "0.8",
+                }
+            )
             current_date += timedelta(days=1)
-        
+
         # Generate XML
         sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
         sitemap_xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-        
+
         for url in sitemap_urls:
-            sitemap_xml += '  <url>\n'
+            sitemap_xml += "  <url>\n"
             sitemap_xml += f'    <loc>{url["loc"]}</loc>\n'
             sitemap_xml += f'    <lastmod>{url["lastmod"]}</lastmod>\n'
             sitemap_xml += f'    <changefreq>{url["changefreq"]}</changefreq>\n'
             sitemap_xml += f'    <priority>{url["priority"]}</priority>\n'
-            sitemap_xml += '  </url>\n'
-        
-        sitemap_xml += '</urlset>\n'
-        
+            sitemap_xml += "  </url>\n"
+
+        sitemap_xml += "</urlset>\n"
+
         # Write sitemap
-        sitemap_path = os.path.join(self.output_dir, 'sitemap.xml')
-        with open(sitemap_path, 'w', encoding='utf-8') as f:
+        sitemap_path = os.path.join(self.output_dir, "sitemap.xml")
+        with open(sitemap_path, "w", encoding="utf-8") as f:
             f.write(sitemap_xml)
-        
+
         print(f"🗺️  Generated sitemap.xml with {len(sitemap_urls)} URLs")
-    
+
     def build_site(self):
         """Build the complete static site"""
         print("🏗️  Building static site...")
-        
+
         # Create output directory
         os.makedirs(self.output_dir, exist_ok=True)
-        os.makedirs(os.path.join(self.output_dir, 'day'), exist_ok=True)
-        
+        os.makedirs(os.path.join(self.output_dir, "day"), exist_ok=True)
+
         # Load all events
         events = self.load_all_events()
         print(f"📅 Loaded {len(events)} events")
-        
+
         # Generate index page
         index_html = self.generate_index_page(events)
-        with open(os.path.join(self.output_dir, 'index.html'), 'w', encoding='utf-8') as f:
+        with open(
+            os.path.join(self.output_dir, "index.html"), "w", encoding="utf-8"
+        ) as f:
             f.write(index_html)
         print("📄 Generated index.html")
-        
+
         # Generate daily pages for all days with events
         today = datetime.now().date()
-        
+
         # Find the latest event date
         latest_date = today
         for event in events:
-            event_date = datetime.fromisoformat(event['start'].replace('Z', '+00:00')).date()
+            event_date = datetime.fromisoformat(
+                event["start"].replace("Z", "+00:00")
+            ).date()
             if event_date > latest_date:
                 latest_date = event_date
-        
+
         # Generate pages from today until the latest event date
         current_date = today
         page_count = 0
         while current_date <= latest_date:
-            daily_html = self.generate_daily_page(datetime.combine(current_date, datetime.min.time()), events)
+            daily_html = self.generate_daily_page(
+                datetime.combine(current_date, datetime.min.time()), events
+            )
             filename = f"{current_date.strftime('%Y-%m-%d')}.html"
-            
-            with open(os.path.join(self.output_dir, 'day', filename), 'w', encoding='utf-8') as f:
+
+            with open(
+                os.path.join(self.output_dir, "day", filename), "w", encoding="utf-8"
+            ) as f:
                 f.write(daily_html)
-            
+
             current_date += timedelta(days=1)
             page_count += 1
-        
+
         print(f"📅 Generated {page_count} daily pages (until {latest_date})")
-        
+
         # Generate sitemap
         self.generate_sitemap(today, latest_date)
-        
+
         # Copy static assets
         self.copy_static_assets()
-        
+
         print(f"✅ Site built in {self.output_dir}/")
 
 

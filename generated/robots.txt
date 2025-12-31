@@ -1,4 +1,4 @@
-# robots.txt for auscheckt.is - single-page JS app
+# robots.txt for auscheckt.is
 
 User-agent: *
 Allow: /

@@ -80,20 +80,11 @@
         "lat": 48.299349,
         "lng": 16.420162
     },
-    "helm": {
-        "label": "Helm",
-        "website": "https://www.weingut-helm.at/",
-        "link_opening_hours_page": "https://www.weingut-helm.at/",
-        "comment": "DI-FR 15:00, SA+FT 14:30 im Zeitraum von 4.2.-5.3. 1.4.-30.4. 3.6.-28.6. 1.8.-30.8. 1.10.-1.11. 2.12.-20.12",
-        "location": "https://maps.app.goo.gl/k6FZPRdSSfdqdpVJA",
-        "lat": 48.299725,
-        "lng": 16.419279
-    },
     "klager": {
         "label": "Gerhard Klager",
         "website": "https://www.weingutklager.at/",
-        "link_opening_hours_page": "",
-        "comment": "MO-SO: 12:00, MI: Ruhetag im Zeitraum von 2.-31.1. 1.-2.2. 6.-9.2. 13.-16.2. 20.-23.2. 27.-28.2. 1.3.-31.3. 3.-6.4. 10.-13.4. 17.-21.4. 26.-29.4. 1.-31.5. 1.6. 5.-9.6. 12.-15.6. 19.-22.6. 26.-30.6. 1.-31.7. 1.-3.8. 23.-31.8. 1.-30.9. 3.-5.10. 10.-12.10. 17.-19.10. 24.-31.10. 1.-30.11. 4.-8.12. 11.-14.12. 26.-30.12.",
+        "link_opening_hours_page": "https://www.weingutklager.at/",
+        "comment": "hier ist ein genauer Plan als pdf lokal gespeichert: input/WeingutKlager_2026_105x74mm_final.pdf",
         "location": "https://maps.app.goo.gl/kFDSYZwJ7ZJjXGkW8",
         "lat": 48.302043,
         "lng": 16.408253
@@ -111,7 +102,7 @@
         "label": "Zur Duschl",
         "website": "https://zurduschl.at/home/",
         "link_opening_hours_page": "https://zurduschl.at/oeffnungszeiten/",
-        "comment": "",
+        "comment": "Bitte ignoriere das Facebook Widget.",
         "location": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
         "lat": 48.308095,
         "lng": 16.403033

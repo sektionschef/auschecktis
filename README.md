@@ -3,7 +3,9 @@
 find it here [https://auschecktis.at/](https://auschecktis.at/)
 
 # Tasks
-* remove the calendar logic from prompt.md and make the json format easier (withount extendedprops)
+
+# regularly check heurigen pages for updates to opening hours
+```bitte lies den prompt und folge den Anweisungen für den Zeitraum {x} bis {y} für den Heurigen {z}.```
 
 # Icons
 
