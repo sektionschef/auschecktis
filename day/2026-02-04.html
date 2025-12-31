@@ -39,6 +39,11 @@
       "addressRegion": "Wien",
       "addressCountry": "AT",
       "postalCode": "1210"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 48.301991,
+      "longitude": 16.408575
     }
   },
   "url": "https://www.klager.at",
@@ -66,6 +71,11 @@
       "addressRegion": "Wien",
       "addressCountry": "AT",
       "postalCode": "1210"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 48.308095,
+      "longitude": 16.403033
     }
   },
   "url": "https://zurduschl.at/home/",
@@ -91,7 +101,7 @@
         <main>
             <h2 class="mb-4">Heurigen am Mittwoch, 04.02.2026</h2>
             
-            
+            <div id="map" class="mb-4" style="height: 400px;"></div>
             
             <div class="events-list">
                 
@@ -114,7 +124,7 @@
                 <a href="https://www.klager.at" target="_blank" class="btn btn-sm btn-outline-primary" itemprop="url">
                     Website
                 </a>
-                
+                <a href="https://maps.app.goo.gl/MQRQRNUwhp2N9krm9" target="_blank" class="btn btn-sm btn-outline-secondary">Google Maps</a>
             </div>
         </div>
 
@@ -137,7 +147,7 @@
                 <a href="https://zurduschl.at/home/" target="_blank" class="btn btn-sm btn-outline-primary" itemprop="url">
                     Website
                 </a>
-                
+                <a href="https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA" target="_blank" class="btn btn-sm btn-outline-secondary">Google Maps</a>
             </div>
         </div>
             </div>
@@ -152,6 +162,37 @@
     <!-- JavaScript -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
+        
+        // Initialize map
+        const map = L.map('map').setView([48.3006, 16.3906], 13);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+        
+        // Custom green icon
+        const greenIcon = L.icon({
+            iconUrl: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="48" viewBox="0 0 32 48"><path fill="%23457c43" stroke="white" stroke-width="2" d="M16 2C8.268 2 2 8.268 2 16c0 10.493 12.03 28.01 12.53 28.74a2 2 0 0 0 3.94 0C17.97 44.01 30 26.493 30 16c0-7.732-6.268-14-14-14zm0 20a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/></svg>',
+            iconSize: [32, 48],
+            iconAnchor: [16, 47],
+            popupAnchor: [0, -40]
+        });
+        
+        // Add markers
+        
+            L.marker([48.301991, 16.408575], {icon: greenIcon})
+                .bindPopup(`<strong>Winzerhof Leopold</strong><br>
+            <a href="https://www.klager.at" target="_blank" style="color:#457c43;text-decoration:underline;">Website</a> &middot; 
+                <a href="https://maps.app.goo.gl/MQRQRNUwhp2N9krm9" target="_blank" style="color:#457c43;text-decoration:underline;">Google Maps</a>`)
+                .addTo(map);
+            L.marker([48.308095, 16.403033], {icon: greenIcon})
+                .bindPopup(`<strong>Zur Duschl</strong><br>
+            <a href="https://zurduschl.at/home/" target="_blank" style="color:#457c43;text-decoration:underline;">Website</a> &middot; 
+                <a href="https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA" target="_blank" style="color:#457c43;text-decoration:underline;">Google Maps</a>`)
+                .addTo(map);
+        
+        // Fit bounds if multiple markers
+        map.fitBounds([[48.301991, 16.408575], [48.308095, 16.403033]], {padding: [20, 20]});
         
     </script>
 </body>
