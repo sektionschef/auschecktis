@@ -1,350 +1,602 @@
 [
   {
     "title": "Zur Duschl",
-    "start": "2026-01-07T18:00:00",
-    "end": "2026-01-07T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-01-08T18:00:00",
-    "end": "2026-01-08T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-01-09T18:00:00",
-    "end": "2026-01-09T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-01-10T18:00:00",
-    "end": "2026-01-10T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-01-11T18:00:00",
-    "end": "2026-01-11T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-01-14T18:00:00",
-    "end": "2026-01-14T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-01-15T18:00:00",
-    "end": "2026-01-15T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-01-16T18:00:00",
-    "end": "2026-01-16T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-01-17T18:00:00",
-    "end": "2026-01-17T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-01-18T18:00:00",
-    "end": "2026-01-18T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-01-21T18:00:00",
-    "end": "2026-01-21T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-01-22T18:00:00",
-    "end": "2026-01-22T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-01-23T18:00:00",
-    "end": "2026-01-23T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-01-24T18:00:00",
-    "end": "2026-01-24T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-01-25T18:00:00",
-    "end": "2026-01-25T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-01-28T18:00:00",
-    "end": "2026-01-28T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-01-29T18:00:00",
-    "end": "2026-01-29T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-01-30T18:00:00",
-    "end": "2026-01-30T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-01-31T18:00:00",
-    "end": "2026-01-31T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-02-01T18:00:00",
-    "end": "2026-02-01T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-02-04T18:00:00",
-    "end": "2026-02-04T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-02-05T18:00:00",
-    "end": "2026-02-05T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-02-06T18:00:00",
-    "end": "2026-02-06T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-02-07T18:00:00",
-    "end": "2026-02-07T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-02-08T18:00:00",
-    "end": "2026-02-08T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-02-11T18:00:00",
-    "end": "2026-02-11T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-02-12T18:00:00",
-    "end": "2026-02-12T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-02-13T18:00:00",
-    "end": "2026-02-13T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-02-14T18:00:00",
-    "end": "2026-02-14T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-02-15T18:00:00",
-    "end": "2026-02-15T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-02-18T18:00:00",
-    "end": "2026-02-18T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-02-19T18:00:00",
-    "end": "2026-02-19T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-02-20T18:00:00",
-    "end": "2026-02-20T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-02-21T18:00:00",
-    "end": "2026-02-21T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-02-22T18:00:00",
-    "end": "2026-02-22T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-02-25T18:00:00",
-    "end": "2026-02-25T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-02-26T18:00:00",
-    "end": "2026-02-26T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
-    "start": "2026-02-27T18:00:00",
-    "end": "2026-02-27T23:59:00",
-    "url": "https://zurduschl.at/home/",
-    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
-    "lat": 48.308095,
-    "lng": 16.403033
-  },
-  {
-    "title": "Zur Duschl",
     "start": "2026-02-28T18:00:00",
     "end": "2026-02-28T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-03-01T18:00:00",
+    "end": "2026-03-01T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-03-04T18:00:00",
+    "end": "2026-03-04T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-03-05T18:00:00",
+    "end": "2026-03-05T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-03-06T18:00:00",
+    "end": "2026-03-06T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-03-07T18:00:00",
+    "end": "2026-03-07T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-03-08T18:00:00",
+    "end": "2026-03-08T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-03-11T18:00:00",
+    "end": "2026-03-11T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-03-12T18:00:00",
+    "end": "2026-03-12T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-03-13T18:00:00",
+    "end": "2026-03-13T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-03-14T18:00:00",
+    "end": "2026-03-14T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-03-15T18:00:00",
+    "end": "2026-03-15T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-03-18T18:00:00",
+    "end": "2026-03-18T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-03-19T18:00:00",
+    "end": "2026-03-19T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-03-20T18:00:00",
+    "end": "2026-03-20T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-03-21T18:00:00",
+    "end": "2026-03-21T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-03-22T18:00:00",
+    "end": "2026-03-22T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-03-25T18:00:00",
+    "end": "2026-03-25T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-03-26T18:00:00",
+    "end": "2026-03-26T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-03-27T18:00:00",
+    "end": "2026-03-27T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-03-28T18:00:00",
+    "end": "2026-03-28T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-03-29T18:00:00",
+    "end": "2026-03-29T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-04-01T18:00:00",
+    "end": "2026-04-01T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-04-02T18:00:00",
+    "end": "2026-04-02T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-04-03T18:00:00",
+    "end": "2026-04-03T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-04-04T18:00:00",
+    "end": "2026-04-04T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-04-05T18:00:00",
+    "end": "2026-04-05T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-04-08T18:00:00",
+    "end": "2026-04-08T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-04-09T18:00:00",
+    "end": "2026-04-09T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-04-10T18:00:00",
+    "end": "2026-04-10T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-04-11T18:00:00",
+    "end": "2026-04-11T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-04-12T18:00:00",
+    "end": "2026-04-12T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-04-15T18:00:00",
+    "end": "2026-04-15T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-04-16T18:00:00",
+    "end": "2026-04-16T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-04-17T18:00:00",
+    "end": "2026-04-17T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-04-18T18:00:00",
+    "end": "2026-04-18T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-04-19T18:00:00",
+    "end": "2026-04-19T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-04-22T18:00:00",
+    "end": "2026-04-22T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-04-23T18:00:00",
+    "end": "2026-04-23T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-04-24T18:00:00",
+    "end": "2026-04-24T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-04-25T18:00:00",
+    "end": "2026-04-25T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-04-26T18:00:00",
+    "end": "2026-04-26T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-04-29T18:00:00",
+    "end": "2026-04-29T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-04-30T18:00:00",
+    "end": "2026-04-30T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-05-01T18:00:00",
+    "end": "2026-05-01T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-05-02T18:00:00",
+    "end": "2026-05-02T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-05-03T18:00:00",
+    "end": "2026-05-03T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-05-06T18:00:00",
+    "end": "2026-05-06T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-05-07T18:00:00",
+    "end": "2026-05-07T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-05-08T18:00:00",
+    "end": "2026-05-08T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-05-09T18:00:00",
+    "end": "2026-05-09T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-05-10T18:00:00",
+    "end": "2026-05-10T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-05-13T18:00:00",
+    "end": "2026-05-13T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-05-14T18:00:00",
+    "end": "2026-05-14T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-05-15T18:00:00",
+    "end": "2026-05-15T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-05-16T18:00:00",
+    "end": "2026-05-16T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-05-17T18:00:00",
+    "end": "2026-05-17T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-05-20T18:00:00",
+    "end": "2026-05-20T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-05-21T18:00:00",
+    "end": "2026-05-21T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-05-22T18:00:00",
+    "end": "2026-05-22T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-05-23T18:00:00",
+    "end": "2026-05-23T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-05-24T18:00:00",
+    "end": "2026-05-24T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-05-27T18:00:00",
+    "end": "2026-05-27T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-05-28T18:00:00",
+    "end": "2026-05-28T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-05-29T18:00:00",
+    "end": "2026-05-29T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-05-30T18:00:00",
+    "end": "2026-05-30T23:59:00",
+    "url": "https://zurduschl.at/home/",
+    "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
+    "lat": 48.308095,
+    "lng": 16.403033
+  },
+  {
+    "title": "Zur Duschl",
+    "start": "2026-05-31T18:00:00",
+    "end": "2026-05-31T23:59:00",
     "url": "https://zurduschl.at/home/",
     "mapLink": "https://maps.app.goo.gl/CoZ6xnrieM4SHKtEA",
     "lat": 48.308095,

@@ -2,7 +2,7 @@
     "presshaus": {
         "label": "Presshaus",
         "website": "https://biohof-steindl.at/",
-        "link_opening_hours_page": "https://biohof-steindl.at/?p=1303",
+        "link_opening_hours_page": "https://biohof-steindl.at/?page_id=7",
         "comment": "",
         "location": "https://maps.app.goo.gl/vNFmAdBddrLGkxpA7",
         "lat": 48.303258,
@@ -48,7 +48,7 @@
         "label": "Biohof N°5",
         "website": "https://wein.nummer5.at/",
         "link_opening_hours_page": "https://wein.nummer5.at/ausgsteckt-kalender/",
-        "comment": "",
+        "comment": "bei Schönwetter Samstag und Sonntag ab 14:00 Uhr",
         "location": "https://maps.app.goo.gl/sCdkrf5bgXvmQER37",
         "lat": 48.30696791263042,
         "lng": 16.423986826531245
