@@ -1,164 +1,506 @@
 [
   {
     "title": "Zum Gustl",
-    "start": "2026-04-24T12:00:00",
-    "end": "2026-04-24T23:00:00",
-    "url": "https://manuelnoessing.com/buschenschank/",
-    "mapLink": "https://maps.app.goo.gl/9wZRCPRvie7xRhq59",
-    "lat": 48.309052471420365,
-    "lng": 16.402192471156756
-  },
-  {
-    "title": "Zum Gustl",
-    "start": "2026-04-25T12:00:00",
-    "end": "2026-04-25T23:00:00",
-    "url": "https://manuelnoessing.com/buschenschank/",
-    "mapLink": "https://maps.app.goo.gl/9wZRCPRvie7xRhq59",
-    "lat": 48.309052471420365,
-    "lng": 16.402192471156756
-  },
-  {
-    "title": "Zum Gustl",
-    "start": "2026-04-26T12:00:00",
-    "end": "2026-04-26T23:00:00",
-    "url": "https://manuelnoessing.com/buschenschank/",
-    "mapLink": "https://maps.app.goo.gl/9wZRCPRvie7xRhq59",
-    "lat": 48.309052471420365,
-    "lng": 16.402192471156756
-  },
-  {
-    "title": "Zum Gustl",
-    "start": "2026-05-01T12:00:00",
-    "end": "2026-05-01T23:00:00",
-    "url": "https://manuelnoessing.com/buschenschank/",
-    "mapLink": "https://maps.app.goo.gl/9wZRCPRvie7xRhq59",
-    "lat": 48.309052471420365,
-    "lng": 16.402192471156756
-  },
-  {
-    "title": "Zum Gustl",
-    "start": "2026-05-02T12:00:00",
-    "end": "2026-05-02T23:00:00",
-    "url": "https://manuelnoessing.com/buschenschank/",
-    "mapLink": "https://maps.app.goo.gl/9wZRCPRvie7xRhq59",
-    "lat": 48.309052471420365,
-    "lng": 16.402192471156756
-  },
-  {
-    "title": "Zum Gustl",
-    "start": "2026-05-03T12:00:00",
-    "end": "2026-05-03T23:00:00",
-    "url": "https://manuelnoessing.com/buschenschank/",
-    "mapLink": "https://maps.app.goo.gl/9wZRCPRvie7xRhq59",
-    "lat": 48.309052471420365,
-    "lng": 16.402192471156756
-  },
-  {
-    "title": "Zum Gustl",
     "start": "2026-05-08T12:00:00",
-    "end": "2026-05-08T23:00:00",
-    "url": "https://manuelnoessing.com/buschenschank/",
-    "mapLink": "https://maps.app.goo.gl/9wZRCPRvie7xRhq59",
-    "lat": 48.309052471420365,
-    "lng": 16.402192471156756
+    "end": "2026-05-08T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
   },
   {
     "title": "Zum Gustl",
     "start": "2026-05-09T12:00:00",
-    "end": "2026-05-09T23:00:00",
-    "url": "https://manuelnoessing.com/buschenschank/",
-    "mapLink": "https://maps.app.goo.gl/9wZRCPRvie7xRhq59",
-    "lat": 48.309052471420365,
-    "lng": 16.402192471156756
+    "end": "2026-05-09T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
   },
   {
     "title": "Zum Gustl",
     "start": "2026-05-10T12:00:00",
-    "end": "2026-05-10T23:00:00",
-    "url": "https://manuelnoessing.com/buschenschank/",
-    "mapLink": "https://maps.app.goo.gl/9wZRCPRvie7xRhq59",
-    "lat": 48.309052471420365,
-    "lng": 16.402192471156756
+    "end": "2026-05-10T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
   },
   {
     "title": "Zum Gustl",
     "start": "2026-05-15T12:00:00",
-    "end": "2026-05-15T23:00:00",
-    "url": "https://manuelnoessing.com/buschenschank/",
-    "mapLink": "https://maps.app.goo.gl/9wZRCPRvie7xRhq59",
-    "lat": 48.309052471420365,
-    "lng": 16.402192471156756
+    "end": "2026-05-15T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
   },
   {
     "title": "Zum Gustl",
     "start": "2026-05-16T12:00:00",
-    "end": "2026-05-16T23:00:00",
-    "url": "https://manuelnoessing.com/buschenschank/",
-    "mapLink": "https://maps.app.goo.gl/9wZRCPRvie7xRhq59",
-    "lat": 48.309052471420365,
-    "lng": 16.402192471156756
+    "end": "2026-05-16T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
   },
   {
     "title": "Zum Gustl",
     "start": "2026-05-17T12:00:00",
-    "end": "2026-05-17T23:00:00",
-    "url": "https://manuelnoessing.com/buschenschank/",
-    "mapLink": "https://maps.app.goo.gl/9wZRCPRvie7xRhq59",
-    "lat": 48.309052471420365,
-    "lng": 16.402192471156756
+    "end": "2026-05-17T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
   },
   {
     "title": "Zum Gustl",
     "start": "2026-05-22T12:00:00",
-    "end": "2026-05-22T23:00:00",
-    "url": "https://manuelnoessing.com/buschenschank/",
-    "mapLink": "https://maps.app.goo.gl/9wZRCPRvie7xRhq59",
-    "lat": 48.309052471420365,
-    "lng": 16.402192471156756
+    "end": "2026-05-22T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
   },
   {
     "title": "Zum Gustl",
     "start": "2026-05-23T12:00:00",
-    "end": "2026-05-23T23:00:00",
-    "url": "https://manuelnoessing.com/buschenschank/",
-    "mapLink": "https://maps.app.goo.gl/9wZRCPRvie7xRhq59",
-    "lat": 48.309052471420365,
-    "lng": 16.402192471156756
+    "end": "2026-05-23T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
   },
   {
     "title": "Zum Gustl",
     "start": "2026-05-24T12:00:00",
-    "end": "2026-05-24T23:00:00",
-    "url": "https://manuelnoessing.com/buschenschank/",
-    "mapLink": "https://maps.app.goo.gl/9wZRCPRvie7xRhq59",
-    "lat": 48.309052471420365,
-    "lng": 16.402192471156756
+    "end": "2026-05-24T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
   },
   {
     "title": "Zum Gustl",
     "start": "2026-05-29T12:00:00",
-    "end": "2026-05-29T23:00:00",
-    "url": "https://manuelnoessing.com/buschenschank/",
-    "mapLink": "https://maps.app.goo.gl/9wZRCPRvie7xRhq59",
-    "lat": 48.309052471420365,
-    "lng": 16.402192471156756
+    "end": "2026-05-29T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
   },
   {
     "title": "Zum Gustl",
     "start": "2026-05-30T12:00:00",
-    "end": "2026-05-30T23:00:00",
-    "url": "https://manuelnoessing.com/buschenschank/",
-    "mapLink": "https://maps.app.goo.gl/9wZRCPRvie7xRhq59",
-    "lat": 48.309052471420365,
-    "lng": 16.402192471156756
+    "end": "2026-05-30T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
   },
   {
     "title": "Zum Gustl",
     "start": "2026-05-31T12:00:00",
-    "end": "2026-05-31T23:00:00",
-    "url": "https://manuelnoessing.com/buschenschank/",
-    "mapLink": "https://maps.app.goo.gl/9wZRCPRvie7xRhq59",
-    "lat": 48.309052471420365,
-    "lng": 16.402192471156756
+    "end": "2026-05-31T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-06-05T12:00:00",
+    "end": "2026-06-05T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-06-06T12:00:00",
+    "end": "2026-06-06T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-06-07T12:00:00",
+    "end": "2026-06-07T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-06-12T12:00:00",
+    "end": "2026-06-12T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-06-13T12:00:00",
+    "end": "2026-06-13T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-06-14T12:00:00",
+    "end": "2026-06-14T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-06-19T12:00:00",
+    "end": "2026-06-19T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-06-20T12:00:00",
+    "end": "2026-06-20T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-06-21T12:00:00",
+    "end": "2026-06-21T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-06-26T12:00:00",
+    "end": "2026-06-26T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-06-27T12:00:00",
+    "end": "2026-06-27T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-06-28T12:00:00",
+    "end": "2026-06-28T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-07-03T12:00:00",
+    "end": "2026-07-03T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-07-04T12:00:00",
+    "end": "2026-07-04T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-07-05T12:00:00",
+    "end": "2026-07-05T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-07-10T12:00:00",
+    "end": "2026-07-10T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-07-11T12:00:00",
+    "end": "2026-07-11T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-07-12T12:00:00",
+    "end": "2026-07-12T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-09-04T12:00:00",
+    "end": "2026-09-04T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-09-05T12:00:00",
+    "end": "2026-09-05T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-09-06T12:00:00",
+    "end": "2026-09-06T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-09-11T12:00:00",
+    "end": "2026-09-11T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-09-12T12:00:00",
+    "end": "2026-09-12T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-09-13T12:00:00",
+    "end": "2026-09-13T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-09-18T12:00:00",
+    "end": "2026-09-18T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-09-19T12:00:00",
+    "end": "2026-09-19T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-09-20T12:00:00",
+    "end": "2026-09-20T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-09-25T12:00:00",
+    "end": "2026-09-25T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-09-26T12:00:00",
+    "end": "2026-09-26T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-09-27T12:00:00",
+    "end": "2026-09-27T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-10-02T12:00:00",
+    "end": "2026-10-02T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-10-03T12:00:00",
+    "end": "2026-10-03T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-10-04T12:00:00",
+    "end": "2026-10-04T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-10-09T12:00:00",
+    "end": "2026-10-09T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-10-10T12:00:00",
+    "end": "2026-10-10T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-10-11T12:00:00",
+    "end": "2026-10-11T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-10-16T12:00:00",
+    "end": "2026-10-16T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-10-17T12:00:00",
+    "end": "2026-10-17T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-10-18T12:00:00",
+    "end": "2026-10-18T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-10-23T12:00:00",
+    "end": "2026-10-23T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-10-24T12:00:00",
+    "end": "2026-10-24T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-10-25T12:00:00",
+    "end": "2026-10-25T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-10-30T12:00:00",
+    "end": "2026-10-30T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
+  },
+  {
+    "title": "Zum Gustl",
+    "start": "2026-10-31T12:00:00",
+    "end": "2026-10-31T23:59:00",
+    "url": "https://www.zumgustl.at/",
+    "mapLink": "https://maps.app.goo.gl/qP4vr7FLiZGXJyPx8",
+    "lat": 48.311944,
+    "lng": 16.400278
   }
 ]
