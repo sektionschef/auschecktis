@@ -61,9 +61,9 @@ python3 build_static_site.py  # Generate HTML
 ## 🤖 **Automation**
 
 ### **GitHub Actions**
-- **Daily builds** at 6 AM to fetch latest heurigen data
+- **Builds and deploys** on pushes to `main` and manual workflow dispatch
 - **Auto-deployment** to GitHub Pages
-- **Data updates** committed back to repository
+- **Data updates** are committed back to the repository when generated files change
 
 ### **Local Development**
 ```bash
