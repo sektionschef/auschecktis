@@ -66,4 +66,5 @@ Wichtige Anweisungen
 * Falls eine Seite nicht erreichbar ist oder 404 zurückmeldet, gib einen Fehler zurück.
 * Websites nutzen oft dt. Monatsabkürzungen („Jän", „März"). Bitte ordne diese den Monaten zu.
 * Überprüfe auch Feiertagsregelungen und matche sie mit dem entsprechenden Datum. Heurige haben häufig an österreichischen Feiertagen offen.
+* Verwende input/austrian_public_holidays_2026.json als Feiertags-Referenz (gesetzliche Feiertage in Österreich), wenn Kommentare oder Webseiten Feiertage erwähnen.
 * Öffnungszeiten, die in der Vergangenheit lagen, sind irrelevant. Bitte nur zukünftige Öffnungszeiten berücksichtigen.

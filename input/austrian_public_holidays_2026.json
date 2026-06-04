@@ -1,0 +1,80 @@
+[
+  {
+    "date": "2026-01-01",
+    "name_de": "Neujahr",
+    "scope": "national",
+    "is_public_holiday": true
+  },
+  {
+    "date": "2026-01-06",
+    "name_de": "Heilige Drei Koenige",
+    "scope": "national",
+    "is_public_holiday": true
+  },
+  {
+    "date": "2026-04-06",
+    "name_de": "Ostermontag",
+    "scope": "national",
+    "is_public_holiday": true
+  },
+  {
+    "date": "2026-05-01",
+    "name_de": "Staatsfeiertag",
+    "scope": "national",
+    "is_public_holiday": true
+  },
+  {
+    "date": "2026-05-14",
+    "name_de": "Christi Himmelfahrt",
+    "scope": "national",
+    "is_public_holiday": true
+  },
+  {
+    "date": "2026-05-25",
+    "name_de": "Pfingstmontag",
+    "scope": "national",
+    "is_public_holiday": true
+  },
+  {
+    "date": "2026-06-04",
+    "name_de": "Fronleichnam",
+    "scope": "national",
+    "is_public_holiday": true
+  },
+  {
+    "date": "2026-08-15",
+    "name_de": "Mariae Himmelfahrt",
+    "scope": "national",
+    "is_public_holiday": true
+  },
+  {
+    "date": "2026-10-26",
+    "name_de": "Nationalfeiertag",
+    "scope": "national",
+    "is_public_holiday": true
+  },
+  {
+    "date": "2026-11-01",
+    "name_de": "Allerheiligen",
+    "scope": "national",
+    "is_public_holiday": true
+  },
+  {
+    "date": "2026-12-08",
+    "name_de": "Mariae Empfaengnis",
+    "scope": "national",
+    "is_public_holiday": true
+  },
+  {
+    "date": "2026-12-25",
+    "name_de": "Christtag",
+    "scope": "national",
+    "is_public_holiday": true
+  },
+  {
+    "date": "2026-12-26",
+    "name_de": "Stefanitag",
+    "scope": "national",
+    "is_public_holiday": true
+  }
+]
