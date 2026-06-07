@@ -39,9 +39,35 @@ class HeurigenSiteGenerator:
 
                     # Add heurigen metadata to each event
                     for event in events:
+                        # Normalize legacy schema fields from extendedProps.
+                        # Older event files may only store location data there.
+                        extended = event.get("extendedProps", {})
+                        if isinstance(extended, dict):
+                            if "mapLink" not in event and "mapLink" in extended:
+                                event["mapLink"] = extended["mapLink"]
+                            if "lat" not in event and "lat" in extended:
+                                event["lat"] = extended["lat"]
+                            if "lng" not in event and "lng" in extended:
+                                event["lng"] = extended["lng"]
+
                         event["heurigen_key"] = heurigen_key
                         if heurigen_key in self.heurigen_master:
-                            event["heurigen_data"] = self.heurigen_master[heurigen_key]
+                            heurigen_data = self.heurigen_master[heurigen_key]
+                            event["heurigen_data"] = heurigen_data
+
+                            # Keep marker placement consistent by taking coordinates
+                            # from the master heurigen list when available.
+                            if heurigen_data.get("lat") is not None:
+                                event["lat"] = heurigen_data["lat"]
+                            if heurigen_data.get("lng") is not None:
+                                event["lng"] = heurigen_data["lng"]
+
+                            if heurigen_data.get("location"):
+                                event["mapLink"] = heurigen_data["location"]
+
+                            # Prefer official website if event URL is missing.
+                            if not event.get("url") and heurigen_data.get("website"):
+                                event["url"] = heurigen_data["website"]
                         all_events.append(event)
 
                 except Exception as e:
@@ -260,12 +286,10 @@ class HeurigenSiteGenerator:
                 popup_html += f""" &middot; 
                 <a href="{marker['mapLink']}" target="_blank" style="color:#457c43;text-decoration:underline;">Google Maps</a>"""
 
-            markers_js.append(
-                f"""
+            markers_js.append(f"""
             L.marker([{marker['lat']}, {marker['lng']}], {{icon: greenIcon}})
                 .bindPopup(`{popup_html}`)
-                .addTo(map);"""
-            )
+                .addTo(map);""")
 
         bounds = [[m["lat"], m["lng"]] for m in markers]
 
