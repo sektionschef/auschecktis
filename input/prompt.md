@@ -42,11 +42,11 @@ Das Zielformat ist folgendes JSON pro Kalendereintrag:
   "mapLink": "https://maps.app.goo.gl/vNFmAdBddrLGkxpA7",
   "lat": 48.303258,
   "lng": 16.410771
+}
+```
 
 ### Feldbeschreibungen
 
-}
-```
 Zum JSON gibt es noch folgende Erklärungen:
 * Der **title** wird immer mit dem **label** befüllt.
 * Das **start** Datum hängt von den Öffnungszeiten ab und wird von dir befüllt.
@@ -60,11 +60,13 @@ Wichtige Anweisungen
 * Lies das **comment** Feld bevor du Handlungen setzt. Die Informationen werden manuell ergänzt und du musst sie berücksichtigen.
 * Falls eine tägliche Endzeit fehlt oder 00:00 beträgt verwende bitte 23:59 Uhr.
 * Falls eine tägliche Startzeit fehlt verwende bitte 18 Uhr.
-* Versuche nicht eigenständig PDFs herunterzuladen oder zu interpretieren. Melde aber bitte dem Benutzer, falls die Öffnungszeiten in einem PDF verfügbar sind.
-* Folge ausschließlich den angegebenen Seiten unter **link_opening_hours_page**.
+* Versuche nicht eigenständig PDFs aus dem Internet herunterzuladen oder zu interpretieren. Melde aber bitte dem Benutzer, falls die Öffnungszeiten in einem PDF verfügbar sind. Ausnahme: Verweist das **comment** Feld auf eine lokal gespeicherte PDF (z. B. im Ordner **input**), ist diese die maßgebliche Quelle und soll ausgewertet werden.
+* Folge ausschließlich den angegebenen Seiten unter **link_opening_hours_page**. Ist das Feld leer, gelten die Angaben im **comment** Feld.
 * Die Zeitzone ist immer Wien, Österreich. Bitte verwende diese explizit.
 * Falls eine Seite nicht erreichbar ist oder 404 zurückmeldet, gib einen Fehler zurück.
 * Websites nutzen oft dt. Monatsabkürzungen („Jän", „März"). Bitte ordne diese den Monaten zu.
 * Überprüfe auch Feiertagsregelungen und matche sie mit dem entsprechenden Datum. Heurige haben häufig an österreichischen Feiertagen offen.
-* Verwende input/austrian_public_holidays_2026.json als Feiertags-Referenz (gesetzliche Feiertage in Österreich), wenn Kommentare oder Webseiten Feiertage erwähnen.
+* Verwende input/austrian_public_holidays_<Jahr>.json (z. B. input/austrian_public_holidays_2026.json) als Feiertags-Referenz (gesetzliche Feiertage in Österreich), wenn Kommentare oder Webseiten Feiertage erwähnen.
 * Öffnungszeiten, die in der Vergangenheit lagen, sind irrelevant. Bitte nur zukünftige Öffnungszeiten berücksichtigen.
+* Beim Aktualisieren ersetzt du nur die Einträge im angefragten Zeitraum. Einträge außerhalb des Zeitraums bleiben unverändert. Wenn du eine Datei vollständig ersetzt, lege die alte Version vorher in **data/archive/** ab.
+* Wenn eine Website keine Termine für den angefragten Zeitraum nennt, erfinde keine. Lass den Zeitraum leer und melde das dem Benutzer.

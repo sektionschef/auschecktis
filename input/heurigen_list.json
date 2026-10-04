@@ -128,7 +128,7 @@
     "weinhandwerk": {
         "label": "Weinhandwerk",
         "website": "https://www.weinhandwerk.at/",
-        "link_opening_hours_page": "https://www.buschenschank-kammererjunior.com/",
+        "link_opening_hours_page": "https://www.weinhandwerk.at/",
         "comment": "FR+SA: 15:00, SO: 12:00 im Zeitraum von 28.4.-19.10.",
         "location": "https://maps.app.goo.gl/WRito6P5jyQ3UQPy9",
         "lat": 48.311834,
@@ -163,7 +163,7 @@
     },
     "szuets": {
         "label": "Szürts/Suchel",
-        "website": "https://weinbausuchel.at//",
+        "website": "https://weinbausuchel.at/",
         "link_opening_hours_page": "https://weinbausuchel.at/",
         "comment": "",
         "location": "https://maps.app.goo.gl/tx3geHLXfFNfKpbt7",

@@ -65,8 +65,8 @@ class HeurigenSiteGenerator:
                             if heurigen_data.get("location"):
                                 event["mapLink"] = heurigen_data["location"]
 
-                            # Prefer official website if event URL is missing.
-                            if not event.get("url") and heurigen_data.get("website"):
+                            # The master list is the source of truth for the website.
+                            if heurigen_data.get("website"):
                                 event["url"] = heurigen_data["website"]
                         all_events.append(event)
 
@@ -216,7 +216,7 @@ class HeurigenSiteGenerator:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AusCheckt is - Heurigenkalender für Stammersdorf am {date_german}</title>
-    <meta name="description" content="Welche Heurige in Stammersdorf haben heute ausg'steckt? Der Heurigenkalender zeigt alle Öffnungszeiten und Standorte der schönsten Heurigen Stammersdorfs. Die Informationen werden laufend von den Webseiten der Heurigen aktualisiert.">
+    <meta name="description" content="Welche Heurige in Stammersdorf haben heute ausg'steckt? Der Heurigenkalender zeigt alle Öffnungszeiten und Standorte der schönsten Heurigen Stammersdorfs. Die Informationen stammen von den Webseiten der Heurigen und werden regelmäßig aktualisiert.">
     
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -329,7 +329,7 @@ class HeurigenSiteGenerator:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AusCheckt is - Heurigenkalender für Stammersdorf</title>
-    <meta name="description" content="Welche Heurige in Stammersdorf haben heute ausg'steckt? Der Heurigenkalender zeigt alle Öffnungszeiten und Standorte der schönsten Heurigen Stammersdorfs. Die Informationen werden laufend von den Webseiten der Heurigen aktualisiert.">
+    <meta name="description" content="Welche Heurige in Stammersdorf haben heute ausg'steckt? Der Heurigenkalender zeigt alle Öffnungszeiten und Standorte der schönsten Heurigen Stammersdorfs. Die Informationen stammen von den Webseiten der Heurigen und werden regelmäßig aktualisiert.">
     
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -350,7 +350,7 @@ class HeurigenSiteGenerator:
             <p class="text-primary"><strong>Wo auscheckt is, wo ausg'steckt is.</strong></p>
         </div>
         <div class="container text-center mb-4">
-            <p>Der Heurigenkalender zeigt die <strong>Öffnungszeiten und Standorte</strong> der schönsten Heurigen in <strong>Stammersdorf</strong>. Die Öffnungszeiten werden regelmäßig automatisch von den Webseiten der Heurigen und dem <a href="http://weinort-stammersdorf.at/weinbau/wp-content/uploads/2021/03/Heurigenkalender-2025_v3-druck.pdf" target="_blank">offiziellen Kalender</a> aktualisiert.</p>
+            <p>Der Heurigenkalender zeigt die <strong>Öffnungszeiten und Standorte</strong> der schönsten Heurigen in <strong>Stammersdorf</strong>. Die Öffnungszeiten werden regelmäßig von den Webseiten der Heurigen übernommen und händisch geprüft. Kurzfristige Änderungen (z.&nbsp;B. wetterbedingte Schließungen) bitte direkt beim Heurigen erfragen.</p>
         </div>
         <div id="open-today" class="container text-center mb-4">
             <div class="mb-4">
@@ -404,8 +404,11 @@ class HeurigenSiteGenerator:
                 return date.toLocaleDateString('de-AT', {{ weekday: 'long', year: 'numeric', month: '2-digit', day: '2-digit' }});
             }}
             
+            // Local calendar date (toISOString() would use UTC and show the
+            // previous day between midnight and 01:00/02:00 in Vienna)
             function getISO(date) {{
-                return date.toISOString().slice(0, 10);
+                const pad = n => String(n).padStart(2, '0');
+                return `${{date.getFullYear()}}-${{pad(date.getMonth() + 1)}}-${{pad(date.getDate())}}`;
             }}
             
             // Initialize map
@@ -466,7 +469,7 @@ class HeurigenSiteGenerator:
                     openToday.forEach(event => {{
                         const li = document.createElement('li');
                         li.innerHTML = `<strong><a href="${{event.url}}" target="_blank">${{event.title}}</a></strong> 
-            (ab ${{new Date(event.start).toLocaleTimeString('de-AT', {{hour: '2-digit', minute:'2-digit', hour12: false}})}} Uhr)`;
+            (ab ${{event.start.slice(11, 16)}} Uhr)`;
                         ul.appendChild(li);
             
                         // Add marker if possible
@@ -662,10 +665,7 @@ class HeurigenSiteGenerator:
         # Generate daily pages
         today = datetime.now().date()
 
-        # Calculate end date (end of February 2026)
-        end_date = datetime(2026, 2, 28).date()
-
-        # Find the latest event date
+        # Generate pages up to the latest event date
         latest_date = today
         for event in events:
             event_date = datetime.fromisoformat(
@@ -673,10 +673,6 @@ class HeurigenSiteGenerator:
             ).date()
             if event_date > latest_date:
                 latest_date = event_date
-
-        # Use the later of latest_date or end_date
-        if end_date > latest_date:
-            latest_date = end_date
 
         # Delete old HTML files (before today)
         day_dir = os.path.join(self.output_dir, "day")
