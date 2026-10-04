@@ -56,6 +56,8 @@ input/
   prompt.md                        instructions for updating data/ (see below)
   WeingutKlager_2026_*.pdf         Klager's printed calendar (source for data/klager.json, see its comment)
   assets/                          static assets copied verbatim into generated/ (CSS, icons, CNAME, favicons, fonts)
+    custom.css                     all page styles (light + dark mode), no CSS framework
+    app.js                         day strip, live "jetzt offen" status, list + map, next-opening overview
   qr_codes/                        printable QR-code flyer (index.html + SVG)
 data/
   <key>.json                       opening-hour events per Heuriger

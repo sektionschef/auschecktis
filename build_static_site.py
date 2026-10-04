@@ -4,12 +4,20 @@ Static Site Generator for AusCheckt Is
 Converts JSON event data to SEO-optimized static HTML with structured data
 """
 
+import html
 import json
 import os
+import subprocess
+from urllib.parse import quote
 from datetime import datetime, timedelta
 from typing import Dict, List, Any
 from zoneinfo import ZoneInfo
-import re
+
+
+# Reports ("Heurigen melden") go to this address. It is only assembled by
+# assets/app.js, so it never appears as plain text in the HTML.
+CONTACT_EMAIL = "the.stevee@gmail.com"
+GITHUB_REPO = "https://github.com/sektionschef/auschecktis"
 
 
 def vienna_today():
@@ -125,20 +133,16 @@ class HeurigenSiteGenerator:
 
         return json.dumps(json_ld, indent=2, ensure_ascii=False)
 
+    WEEKDAYS = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
+    MONTHS = [
+        "Jänner", "Februar", "März", "April", "Mai", "Juni",
+        "Juli", "August", "September", "Oktober", "November", "Dezember",
+    ]
+
     def format_date_german(self, date_str: str) -> str:
-        """Format ISO date to German format"""
+        """Format ISO date to German format, e.g. "Samstag, 10. Oktober 2026" """
         dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
-        weekdays = [
-            "Montag",
-            "Dienstag",
-            "Mittwoch",
-            "Donnerstag",
-            "Freitag",
-            "Samstag",
-            "Sonntag",
-        ]
-        weekday = weekdays[dt.weekday()]
-        return f"{weekday}, {dt.strftime('%d.%m.%Y')}"
+        return f"{self.WEEKDAYS[dt.weekday()]}, {dt.day}. {self.MONTHS[dt.month - 1]} {dt.year}"
 
     def format_time_german(self, date_str: str) -> str:
         """Format ISO time to German format"""
@@ -153,406 +157,280 @@ class HeurigenSiteGenerator:
             return f"ab {start_time} Uhr"
         return f"{start_time}–{end_time} Uhr"
 
-    def generate_event_html(self, event: Dict[str, Any]) -> str:
-        """Generate HTML for a single event with microdata"""
-        map_link = event.get("mapLink", "")
-
-        return f"""
-        <div class="event-card mb-3 p-3 border rounded" itemscope itemtype="https://schema.org/Event">
-            <h4 itemprop="name">{event['title']}</h4>
-            <div class="event-details">
-                <time itemprop="startDate" datetime="{event['start']}" class="text-muted">
-                    {self.format_opening_hours(event)}
-                </time>
-                <meta itemprop="endDate" content="{event['end']}">
-                <div itemprop="location" itemscope itemtype="https://schema.org/Place">
-                    <span itemprop="name" class="d-none">{event['title']}</span>
-                    <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-                        <span itemprop="addressLocality" class="d-none">Wien</span>
-                        <span itemprop="addressRegion" class="d-none">Wien</span>
-                        <span itemprop="postalCode" class="d-none">1210</span>
-                    </div>
-                </div>
-            </div>
-            <div class="event-actions mt-2">
-                <a href="{event.get('url', '#')}" target="_blank" class="btn btn-sm btn-outline-primary" itemprop="url">
-                    Website
-                </a>
-                {f'<a href="{map_link}" target="_blank" class="btn btn-sm btn-outline-secondary">Google Maps</a>' if map_link else ''}
-            </div>
-        </div>"""
-
-    def generate_daily_page(self, date: datetime, events: List[Dict[str, Any]]) -> str:
-        """Generate HTML page for a specific date"""
-        date_str = date.strftime("%Y-%m-%d")
-        date_german = self.format_date_german(date.isoformat())
-
-        # Filter events for this date
-        day_events = [e for e in events if e["start"].startswith(date_str)]
-
-        # Generate JSON-LD for all events on this day
-        json_ld_list = [self.generate_json_ld(event) for event in day_events]
-        json_ld_combined = ",\n".join(json_ld_list) if json_ld_list else ""
-
-        # Generate event HTML
-        events_html = ""
-        map_markers = []
-
-        if day_events:
-            events_html = "\n".join(
-                [self.generate_event_html(event) for event in day_events]
-            )
-
-            # Prepare map markers
-            for event in day_events:
-                if "lat" in event and "lng" in event:
-                    map_markers.append(
-                        {
-                            "lat": event["lat"],
-                            "lng": event["lng"],
-                            "title": event["title"],
-                            "url": event.get("url", "#"),
-                            "mapLink": event.get("mapLink", ""),
-                        }
-                    )
-        else:
-            events_html = (
-                '<p class="text-muted">Kein Heuriger hat heute ausg\'steckt.</p>'
-            )
-
-        # Generate map JavaScript
-        map_js = self.generate_map_js(map_markers)
-
-        html_template = f"""<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AusCheckt is - Heurigenkalender für Stammersdorf am {date_german}</title>
-    <meta name="description" content="Welche Heurige in Stammersdorf haben heute ausg'steckt? Der Heurigenkalender zeigt alle Öffnungszeiten und Standorte der schönsten Heurigen Stammersdorfs. Die Informationen stammen von den Webseiten der Heurigen und werden regelmäßig aktualisiert.">
-    
-    <!-- Favicons -->
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    
-    <!-- CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="/custom.css">
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    [
-        {json_ld_combined}
-    ]
-    </script>
-</head>
-<body>
-    <div class="container mt-4">
-        <header class="text-center mb-5">
-            <h1 class="text-primary old-london">Auscheckt is</h1>
-            <p class="text-primary"><strong>Wo auscheckt is, wo ausg'steckt is.</strong></p>
-            <nav>
-                <a href="/" class="btn btn-outline-primary">← Zurück zur Übersicht</a>
-            </nav>
-        </header>
-        
-        <main>
-            <h2 class="mb-4">Heurigen am {date_german}</h2>
-            
-            {f'<div id="map" class="mb-4" style="height: 400px;"></div>' if map_markers else ''}
-            
-            <div class="events-list">
-                {events_html}
-            </div>
-        </main>
-        
-        <footer class="text-center mt-5 py-4 border-top" style="background-color: #f1f1f1;">
-            <p><small>Open-Source-Projekt für Heurigenliebhaber:innen und Aficionados.</small></p>
-            <p><small><a href="https://github.com/sektionschef/auschecktis">GitHub Repo</a></small></p>
-        </footer>
-    </div>
-    
-    <!-- JavaScript -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script>
-        {map_js}
-    </script>
-</body>
-</html>"""
-
-        return html_template
-
-    def generate_map_js(self, markers: List[Dict[str, Any]]) -> str:
-        """Generate JavaScript for Leaflet map"""
-        if not markers:
+    def data_last_checked(self) -> str:
+        """Date of the last commit touching the opening-hours data, e.g. "4. Oktober 2026" """
+        try:
+            out = subprocess.run(
+                ["git", "log", "-1", "--format=%cs", "--", "data", "input/heurigen_list.json"],
+                cwd=self.base_dir, capture_output=True, text=True, check=True,
+            ).stdout.strip()
+            dt = datetime.strptime(out, "%Y-%m-%d")
+            return f"{dt.day}. {self.MONTHS[dt.month - 1]} {dt.year}"
+        except Exception:
             return ""
 
-        markers_js = []
-        for marker in markers:
-            popup_html = f"""<strong>{marker['title']}</strong><br>
-            <a href="{marker['url']}" target="_blank" style="color:#457c43;text-decoration:underline;">Website</a>"""
-            if marker.get("mapLink"):
-                popup_html += f""" &middot; 
-                <a href="{marker['mapLink']}" target="_blank" style="color:#457c43;text-decoration:underline;">Google Maps</a>"""
-
-            markers_js.append(f"""
-            L.marker([{marker['lat']}, {marker['lng']}], {{icon: greenIcon}})
-                .bindPopup(`{popup_html}`)
-                .addTo(map);""")
-
-        bounds = [[m["lat"], m["lng"]] for m in markers]
-
-        return f"""
-        // Initialize map
-        const map = L.map('map').setView([48.3006, 16.3906], 13);
-        
-        L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
-            attribution: '&copy; OpenStreetMap contributors'
-        }}).addTo(map);
-        
-        // Custom green icon
-        const greenIcon = L.icon({{
-            iconUrl: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="48" viewBox="0 0 32 48"><path fill="%23457c43" stroke="white" stroke-width="2" d="M16 2C8.268 2 2 8.268 2 16c0 10.493 12.03 28.01 12.53 28.74a2 2 0 0 0 3.94 0C17.97 44.01 30 26.493 30 16c0-7.732-6.268-14-14-14zm0 20a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/></svg>',
-            iconSize: [32, 48],
-            iconAnchor: [16, 47],
-            popupAnchor: [0, -40]
-        }});
-        
-        // Add markers
-        {''.join(markers_js)}
-        
-        // Fit bounds if multiple markers
-        {f"map.fitBounds({bounds}, {{padding: [20, 20]}});" if len(markers) > 1 else ""}
-        """
-
-    def generate_index_page(self, events: List[Dict[str, Any]]) -> str:
-        """Generate main index page with interactive map and date navigation"""
-        today = vienna_today().isoformat()
-
-        # Only upcoming events, and only the fields the page uses
+    def public_event(self, event: Dict[str, Any]) -> Dict[str, Any]:
+        """Only the fields the browser needs"""
         fields = ["title", "start", "end", "url", "mapLink", "lat", "lng"]
-        upcoming = [
-            {f: e[f] for f in fields if f in e} for e in events if e["start"][:10] >= today
-        ]
-        events_json = json.dumps(upcoming, ensure_ascii=False, indent=2)
-        last_date = max((e["start"][:10] for e in upcoming), default=today)
+        return {f: event[f] for f in fields if f in event}
 
+    def json_for_script(self, data: Any) -> str:
+        """JSON that is safe to embed in a <script> tag"""
+        return json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+
+    def sort_day_events(self, events: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        return sorted(events, key=lambda e: (e["start"], e["title"]))
+
+    def generate_event_html(self, event: Dict[str, Any], index: int) -> str:
+        """HTML card for a single opening with microdata (same markup as assets/app.js)"""
+        title = html.escape(event["title"])
+        url = html.escape(event.get("url", ""))
+        map_link = html.escape(event.get("mapLink", ""))
+        route = f'<a class="btn" href="{map_link}" target="_blank" rel="noopener">Route</a>' if map_link else ""
+        website = f'<a class="btn btn-ghost" href="{url}" target="_blank" rel="noopener" itemprop="url">Website</a>' if url else ""
+        return f"""
+            <li class="card" data-i="{index}" itemscope itemtype="https://schema.org/Event">
+                <span class="card-num" aria-hidden="true">{index + 1}</span>
+                <div class="card-body">
+                    <h3 class="card-title" itemprop="name">{title}</h3>
+                    <p class="card-hours"><time itemprop="startDate" datetime="{event['start']}">{self.format_opening_hours(event)}</time></p>
+                    <meta itemprop="endDate" content="{event['end']}">
+                    <span hidden itemprop="location" itemscope itemtype="https://schema.org/Place">
+                        <meta itemprop="name" content="{title}">
+                        <meta itemprop="address" content="1210 Wien, Österreich">
+                    </span>
+                </div>
+                <div class="card-actions">{route}{website}</div>
+            </li>"""
+
+    def generate_head(self, title: str, description: str, canonical: str, extra: str = "") -> str:
+        """Shared <head> for all pages"""
+        title = html.escape(title)
+        description = html.escape(description)
         return f"""<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AusCheckt is - Heurigenkalender für Stammersdorf</title>
-    <meta name="description" content="Welche Heurige in Stammersdorf haben heute ausg'steckt? Der Heurigenkalender zeigt alle Öffnungszeiten und Standorte der schönsten Heurigen Stammersdorfs. Die Informationen stammen von den Webseiten der Heurigen und werden regelmäßig aktualisiert.">
-    
+    <title>{title}</title>
+    <script>
+        // Apply the saved theme before the first paint
+        try {{
+            var t = localStorage.getItem('theme');
+            if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t;
+        }} catch (e) {{}}
+    </script>
+    <meta name="description" content="{description}">
+    <link rel="canonical" href="{canonical}">
+    <meta name="theme-color" content="#faf8f3" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141714" media="(prefers-color-scheme: dark)">
+
+    <!-- Social sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_AT">
+    <meta property="og:title" content="{title}">
+    <meta property="og:description" content="{description}">
+    <meta property="og:url" content="{canonical}">
+    <meta property="og:image" content="https://auschecktis.at/web-app-manifest-512x512.png">
+
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    
+
     <!-- CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preload" href="/assets/font_old_london/OldLondon.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="/custom.css">
-</head>
-<body>
-    <div id="main">
-        <div class="mb-5 container text-center">
-            <h1 class="text-primary old-london">AusCheckt is</h1>
-            <p class="text-primary"><strong>Wo auscheckt is, wo ausg'steckt is.</strong></p>
-        </div>
-        <div class="container text-center mb-4">
-            <p>Der Heurigenkalender zeigt die <strong>Öffnungszeiten und Standorte</strong> der schönsten Heurigen in <strong>Stammersdorf</strong>. Die Öffnungszeiten werden regelmäßig von den Webseiten der Heurigen übernommen und händisch geprüft. Kurzfristige Änderungen (z.&nbsp;B. wetterbedingte Schließungen) bitte direkt beim Heurigen erfragen.</p>
-        </div>
-        <div id="open-today" class="container text-center mb-4">
-            <div class="mb-4">
-                <button id="prev-day" class="btn btn-primary btn-lg rounded-circle me-2 d-inline-flex align-items-center justify-content-center" style="width:2.5em; height:2.5em;" disabled title="Vortag">
-                    <span class="visually-hidden">Vortag</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-                    </svg>
-                </button>
-                <button id="next-day" class="btn btn-primary btn-lg rounded-circle d-inline-flex align-items-center justify-content-center" style="width:2.5em; height:2.5em;" title="Nächster Tag">
-                    <span class="visually-hidden">Nächster Tag</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M4.646 14.354a.5.5 0 0 1 0-.708L10.293 8 4.646 2.354a.5.5 0 1 1 .708-.708l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708 0z"/>
-                    </svg>
-                </button>
-            </div>
-            <h2 class="mb-4 text-primary"><span id="current-date"></span></h2>
-            <div id="map" class="mb-4" style="height: 320px; width: 100%; margin-bottom: 1em;"></div>
-            <ul id="open-today-list" class="list-unstyled text-start mx-auto" style="max-width: 300px;"></ul>
-        </div>
-    </div>
-    <footer class="text-center mt-5 py-4 border-top" style="background-color: #f1f1f1;">
-        <p>
-            <small>Open-Source-Projekt für Heurigenliebhaber:innen und Aficionados.</small>
-        </p>
-        <p>
-            <small><img src="assets/github-mark.svg" alt="GitHub" style="height: 1em; vertical-align: middle; margin-right: 0.3em;"> <a href="https://github.com/sektionschef/auschecktis">GitHub Repo</a></small>
-        </p>
-    </footer>
-    
-    <!-- JavaScript -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script>
-        // All events data
-        const allEvents = {events_json};
-        
-        // Wait for DOM to be ready
-        document.addEventListener('DOMContentLoaded', function() {{
-            const today = new Date();
-            // Browse until the last known opening day
-            const maxDate = new Date('{last_date}T00:00:00');
-            
-            let currentDate = new Date(today);
-            
-            const ul = document.getElementById('open-today-list');
-            const currentDateSpan = document.getElementById('current-date');
-            const prevBtn = document.getElementById('prev-day');
-            const nextBtn = document.getElementById('next-day');
-            
-            function formatHours(event) {{
-                const start = event.start.slice(11, 16);
-                const end = event.end.slice(11, 16);
-                return end === '23:59' ? `ab ${{start}} Uhr` : `${{start}}–${{end}} Uhr`;
-            }}
+{extra}</head>"""
 
-            function formatDate(date) {{
-                return date.toLocaleDateString('de-AT', {{ weekday: 'long', year: 'numeric', month: '2-digit', day: '2-digit' }});
-            }}
-            
-            // Local calendar date (toISOString() would use UTC and show the
-            // previous day between midnight and 01:00/02:00 in Vienna)
-            function getISO(date) {{
-                const pad = n => String(n).padStart(2, '0');
-                return `${{date.getFullYear()}}-${{pad(date.getMonth() + 1)}}-${{pad(date.getDate())}}`;
-            }}
-            
-            // Initialize map
-            let map = L.map('map').setView([48.3006, 16.3906], 13); // Center on Stammersdorf
-            
-            L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
-                attribution: '&copy; OpenStreetMap contributors'
-            }}).addTo(map);
-            
-            let markerGroup = L.layerGroup().addTo(map);
-            
-            function clearMarkers() {{
-                markerGroup.clearLayers();
-            }}
-            
-            function addMarker(lat, lng, popupHtml) {{
-                L.marker([lat, lng], {{ icon: greenIcon }}).bindPopup(popupHtml).addTo(markerGroup);
-            }}
-            
-            // Custom green icon
-            const greenIcon = L.icon({{
-                iconUrl: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="48" viewBox="0 0 32 48"><path fill="%23457c43" stroke="white" stroke-width="2" d="M16 2C8.268 2 2 8.268 2 16c0 10.493 12.03 28.01 12.53 28.74a2 2 0 0 0 3.94 0C17.97 44.01 30 26.493 30 16c0-7.732-6.268-14-14-14zm0 20a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/></svg>',
-                iconSize:     [32, 48],
-                iconAnchor:   [16, 47],
-                popupAnchor:  [0, -40]
-            }});
-            
-            function renderList() {{
-                const currentISO = getISO(currentDate);
-                const todayISO = getISO(today);
-                const tomorrow = new Date(today);
-                tomorrow.setDate(today.getDate() + 1);
-                const tomorrowISO = getISO(tomorrow);
-            
-                // Set heading text
-                if (currentISO === todayISO) {{
-                    currentDateSpan.textContent = "Heute geöffnet";
-                }} else if (currentISO === tomorrowISO) {{
-                    currentDateSpan.textContent = "Morgen geöffnet";
-                }} else {{
-                    currentDateSpan.textContent = "Geöffnet am " + formatDate(currentDate);
-                }}
-            
-                // Enable/disable prev/next buttons
-                prevBtn.disabled = currentISO <= todayISO;
-                nextBtn.disabled = currentISO >= getISO(maxDate);
-            
-                // Filter for current date
-                const openToday = allEvents.filter(event => event.start.slice(0, 10) === currentISO);
-            
-                ul.innerHTML = '';
-                clearMarkers();
-            
-                if (openToday.length === 0) {{
-                    ul.innerHTML = '<li>Kein Heuriger geöffnet.</li>';
-                }} else {{
-                    let bounds = [];
-                    openToday.forEach(event => {{
-                        const li = document.createElement('li');
-                        li.innerHTML = `<strong><a href="${{event.url}}" target="_blank">${{event.title}}</a></strong> 
-            (${{formatHours(event)}})`;
-                        ul.appendChild(li);
-            
-                        // Add marker if possible
-                        if (
-                            typeof event.lat === "number" &&
-                            typeof event.lng === "number"
-                        ) {{
-                            const latlng = [event.lat, event.lng];
-                            let popupHtml = `<strong>${{event.title}}</strong><br>
-                                <a href="${{event.url}}" target="_blank" style="color:#457c43;text-decoration:underline;">Website</a>`;
-                            if (event.mapLink) {{
-                                popupHtml += ` &middot; <a href="${{event.mapLink}}" target="_blank" style="color:#457c43;text-decoration:underline;">Google Maps</a>`;
-                            }}
-                            addMarker(latlng[0], latlng[1], popupHtml);
-                            bounds.push(latlng);
-                        }}
-                    }});
-                    // Zoom to bounds if markers exist
-                    if (bounds.length > 0) {{
-                        map.fitBounds(bounds, {{padding: [30, 30]}});
-                    }} else {{
-                        map.setView([48.3006, 16.3906], 13);
-                    }}
-                }}
-            }}
-            
-            // Helper to extract lat/lng from Google Maps short links
-            function extractLatLng(mapLink) {{
-                try {{
-                    if (mapLink.includes('@')) {{
-                        const match = mapLink.match(/@([0-9\\.\\-]+),([0-9\\.\\-]+)/);
-                        if (match) return [parseFloat(match[1]), parseFloat(match[2])];
-                    }}
-                }} catch (e) {{}}
-                return null;
-            }}
-            
-            // Initialize and render
-            renderList();
-            
-            prevBtn.addEventListener('click', () => {{
-                if (getISO(currentDate) > getISO(today)) {{
-                    currentDate.setDate(currentDate.getDate() - 1);
-                    renderList();
-                }}
-            }});
-            
-            nextBtn.addEventListener('click', () => {{
-                if (getISO(currentDate) < getISO(maxDate)) {{
-                    currentDate.setDate(currentDate.getDate() + 1);
-                    renderList();
-                }}
-            }});
-        }});
-    </script>
+    def generate_header(self) -> str:
+        return """
+    <header class="site-header">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Dunkles Design einschalten" hidden></button>
+        <a href="/" class="logo old-london">AusCheckt is</a>
+        <p class="tagline">Wo auscheckt is, wo ausg'steckt is.</p>
+    </header>"""
+
+    def mail_link(self, label: str, subject: str, body: str, issue_title: str, css: str = "btn") -> str:
+        """Mail link, filled in by assets/app.js; without JS it opens a GitHub issue"""
+        user, domain = CONTACT_EMAIL.split("@")
+        fallback = f"{GITHUB_REPO}/issues/new?title={quote(issue_title)}&body={quote(body)}"
+        return (
+            f'<a class="{css} js-mail" href="{html.escape(fallback)}" data-u="{html.escape(user)}" '
+            f'data-d="{html.escape(domain)}" data-subject="{html.escape(subject)}" '
+            f'data-body="{html.escape(body)}">{label}</a>'
+        )
+
+    def generate_report_box(self) -> str:
+        new_body = (
+            "Hallo!\n\nIch möchte einen Heurigen in Stammersdorf melden:\n\n"
+            "Name:\nAdresse:\nWebsite:\nÖffnungszeiten / Ausg'steckt-Termine:\n\nDanke!"
+        )
+        fix_body = "Hallo!\n\nAuf AusCheckt is stimmt etwas nicht:\n\nHeuriger:\nDatum:\nWas ist falsch:\n\nDanke!"
+        new_btn = self.mail_link("Heurigen melden", "Neuer Heuriger für AusCheckt is", new_body, "Neuer Heuriger: ")
+        fix_btn = self.mail_link("Fehler melden", "Fehler auf AusCheckt is", fix_body, "Fehler: ", "btn btn-ghost")
+        return f"""
+        <section class="section report">
+            <div>
+                <h2>Fehlt ein Heuriger?</h2>
+                <p>Du kennst einen Heurigen oder eine Buschenschank in Stammersdorf, die hier fehlt – oder eine Öffnungszeit stimmt nicht? Schreib uns, wir nehmen es gerne auf.</p>
+            </div>
+            <div class="report-actions">
+                {new_btn}
+                {fix_btn}
+                <a class="report-alt" href="{GITHUB_REPO}/issues/new" target="_blank" rel="noopener">oder als GitHub-Issue melden</a>
+            </div>
+        </section>"""
+
+    def generate_footer(self, last_checked: str) -> str:
+        checked = f"Öffnungszeiten zuletzt geprüft am {last_checked}. " if last_checked else ""
+        return f"""
+    <footer class="site-footer">
+        <p>{checked}Angaben ohne Gewähr – bei Schlechtwetter sperren manche Buschenschanken spontan zu, im Zweifel kurz anrufen.</p>
+        <p>Open-Source-Projekt für Heurigenliebhaber:innen und Aficionados ·
+            <a href="{GITHUB_REPO}"><img src="/assets/github-mark.svg" alt="" class="gh-icon">GitHub</a> ·
+            {self.mail_link("Heurigen melden", "Neuer Heuriger für AusCheckt is", "Hallo!\n\nIch möchte einen Heurigen in Stammersdorf melden:\n\nName:\nAdresse:\nWebsite:\n", "Neuer Heuriger: ", "")}</p>
+    </footer>"""
+
+    def generate_scripts(self, data: Dict[str, Any]) -> str:
+        return f"""
+    <script id="ac-data" type="application/json">{self.json_for_script(data)}</script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="/assets/app.js"></script>
     <!-- GoatCounter -->
-    <script data-goatcounter="https://auschecktis.goatcounter.com/count"
-       async
-       src="//gc.zgo.at/count.js"></script>
+    <script data-goatcounter="https://auschecktis.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>"""
+
+    def generate_daily_page(self, date: datetime, events: List[Dict[str, Any]], last_checked: str = "") -> str:
+        """Generate HTML page for a specific date"""
+        date_str = date.strftime("%Y-%m-%d")
+        date_german = self.format_date_german(date.isoformat())
+
+        day_events = self.sort_day_events([e for e in events if e["start"].startswith(date_str)])
+        json_ld_combined = ",\n".join(self.generate_json_ld(event) for event in day_events)
+
+        count = len(day_events)
+        if count == 0:
+            headline = "Kein Heuriger hat ausg'steckt"
+        elif count == 1:
+            headline = "1 Heuriger hat ausg'steckt"
+        else:
+            headline = f"{count} Heurige haben ausg'steckt"
+
+        cards = "\n".join(self.generate_event_html(e, i) for i, e in enumerate(day_events))
+        content = f"""
+            <div class="layout">
+                <ol class="cards" id="list">{cards}
+                </ol>
+                <div class="map-wrap"><div id="map" role="region" aria-label="Karte"></div></div>
+            </div>""" if day_events else """
+            <p class="empty">An diesem Tag hat laut unseren Daten kein Heuriger in Stammersdorf ausg'steckt.</p>"""
+
+        head = self.generate_head(
+            f"Heurigen in Stammersdorf am {date_german} – AusCheckt is",
+            f"Welche Heurigen in Stammersdorf haben am {date_german} ausg'steckt? Öffnungszeiten, Karte und Route zu allen offenen Heurigen und Buschenschanken.",
+            f"https://auschecktis.at/day/{date_str}.html",
+            f"""    <script type="application/ld+json">
+    [
+        {json_ld_combined}
+    ]
+    </script>
+""",
+        )
+        data = {"mode": "day", "date": date_str, "events": [self.public_event(e) for e in day_events]}
+
+        return f"""{head}
+<body>
+    {self.generate_header()}
+    <main class="wrap">
+        <section class="answer">
+            <p class="eyebrow">{date_german}</p>
+            <h1 class="answer-title">{headline}</h1>
+            <p class="answer-sub"><a href="/#{date_str}">← Alle Tage im Heurigenkalender</a></p>
+        </section>
+        {content}
+    </main>
+    {self.generate_footer(last_checked)}
+    {self.generate_scripts(data)}
+</body>
+</html>"""
+
+    def generate_index_page(self, events: List[Dict[str, Any]], last_checked: str = "") -> str:
+        """Generate main index page: today's answer, day strip, list + map, all Heurigen"""
+        today = vienna_today().isoformat()
+        upcoming = [self.public_event(e) for e in events if e["start"][:10] >= today]
+        today_events = self.sort_day_events([e for e in upcoming if e["start"][:10] == today])
+
+        heurigen = sorted(
+            (
+                {"title": h["label"], "url": h.get("website", ""), "mapLink": h.get("location", "")}
+                for h in self.heurigen_master.values()
+            ),
+            key=lambda h: h["title"].lower(),
+        )
+
+        # Server-rendered answer for today (replaced by assets/app.js, kept for SEO and without JS)
+        count = len(today_events)
+        if count == 0:
+            headline = "Heute hat kein Heuriger ausg'steckt"
+        elif count == 1:
+            headline = "1 Heuriger hat heute ausg'steckt"
+        else:
+            headline = f"{count} Heurige haben heute ausg'steckt"
+        cards = "\n".join(self.generate_event_html(e, i) for i, e in enumerate(today_events))
+        all_items = "\n".join(
+            f'                <li><span class="all-name">{html.escape(h["title"])}</span></li>' for h in heurigen
+        )
+
+        head = self.generate_head(
+            "AusCheckt is – Welche Heurigen in Stammersdorf haben heute ausg'steckt?",
+            "Welche Heurigen in Stammersdorf haben heute ausg'steckt? Der Heurigenkalender zeigt Öffnungszeiten, Karte und Route aller Heurigen und Buschenschanken in Stammersdorf – Tag für Tag.",
+            "https://auschecktis.at/",
+        )
+        data = {"mode": "index", "today": today, "events": upcoming, "heurigen": heurigen}
+
+        return f"""{head}
+<body>
+    {self.generate_header()}
+    <main class="wrap">
+        <section class="answer" aria-live="polite">
+            <p class="eyebrow" id="day-label">Heute · {self.format_date_german(today)}</p>
+            <h1 class="answer-title" id="day-title">{headline}</h1>
+            <p class="answer-sub" id="day-sub">Heurigenkalender für Stammersdorf</p>
+        </section>
+
+        <nav class="day-strip" id="day-strip" aria-label="Tag auswählen"></nav>
+
+        <div class="layout">
+            <ol class="cards" id="list">{cards}
+            </ol>
+            <div class="map-wrap"><div id="map" role="region" aria-label="Karte der geöffneten Heurigen"></div></div>
+        </div>
+
+        <section class="section" id="alle">
+            <h2>Wann hat mein Heuriger wieder offen?</h2>
+            <p class="section-lead">Alle {len(heurigen)} Heurigen und Buschenschanken in Stammersdorf mit ihrem nächsten Termin.</p>
+            <ul class="all-list" id="all-list">
+{all_items}
+            </ul>
+        </section>
+
+        {self.generate_report_box()}
+
+        <section class="section why">
+            <h2>Warum AusCheckt is?</h2>
+            <ul class="why-grid">
+                <li><strong>Eine Seite statt {len(heurigen)} Websites</strong><span>Alle Öffnungszeiten aus Stammersdorf an einem Ort – regelmäßig geprüft.</span></li>
+                <li><strong>Das Wochenende planen</strong><span>Tipp oben auf einen Tag und sieh sofort, wer am Samstag ausg'steckt hat.</span></li>
+                <li><strong>Immer griffbereit</strong><span>Zum Startbildschirm hinzufügen – dann ist der Heurigenkalender nur einen Tipp entfernt.</span></li>
+                <li><strong>Frei &amp; offen</strong><span>Ohne Werbung, ohne Anmeldung, Open Source.</span></li>
+            </ul>
+        </section>
+    </main>
+    {self.generate_footer(last_checked)}
+    {self.generate_scripts(data)}
 </body>
 </html>"""
 
@@ -678,7 +556,8 @@ class HeurigenSiteGenerator:
         print(f"📅 Loaded {len(events)} events")
 
         # Generate index page
-        index_html = self.generate_index_page(events)
+        last_checked = self.data_last_checked()
+        index_html = self.generate_index_page(events, last_checked)
         with open(
             os.path.join(self.output_dir, "index.html"), "w", encoding="utf-8"
         ) as f:
@@ -720,7 +599,7 @@ class HeurigenSiteGenerator:
         page_count = 0
         while current_date <= latest_date:
             daily_html = self.generate_daily_page(
-                datetime.combine(current_date, datetime.min.time()), events
+                datetime.combine(current_date, datetime.min.time()), events, last_checked
             )
             filename = f"{current_date.strftime('%Y-%m-%d')}.html"
 
