@@ -2,12 +2,14 @@
  * AusCheckt is – client side of the Heurigenkalender.
  * Reads the embedded JSON (#ac-data) and renders the day strip, the list of
  * open Heurigen, the map and the "next opening" overview.
- * Index page: mode "index"; day pages: mode "day" (list is server-rendered).
+ * Index page: mode "index"; day pages: mode "day" (list is server-rendered);
+ * Heuriger and weekend pages: mode "places" (map of places without times).
  */
 (function () {
   'use strict';
 
-  const DATA = JSON.parse(document.getElementById('ac-data').textContent);
+  const dataEl = document.getElementById('ac-data');
+  const DATA = dataEl ? JSON.parse(dataEl.textContent) : { mode: 'static', events: [] };
   const WEEKDAYS = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
   const WD_SHORT = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
   const MONTHS = ['Jänner', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August',
@@ -64,7 +66,7 @@
     return `<li class="card${st ? ' is-' + st.cls : ''}" data-i="${i}">
         <span class="card-num" aria-hidden="true">${i + 1}</span>
         <div class="card-body">
-          <h3 class="card-title">${esc(e.title)}</h3>
+          <h3 class="card-title">${e.page ? `<a href="${esc(e.page)}">${esc(e.title)}</a>` : esc(e.title)}</h3>
           <p class="card-hours">${hoursLabel(e)}</p>
         </div>
         ${badge}
@@ -108,7 +110,7 @@
         e.url ? `<a href="${esc(e.url)}" target="_blank" rel="noopener">Website</a>` : '',
       ].filter(Boolean).join(' · ');
       const mk = L.marker([e.lat, e.lng], { icon, title: e.title })
-        .bindPopup(`<strong>${esc(e.title)}</strong><br>${hoursLabel(e)}<br>${links}`)
+        .bindPopup(`<strong>${esc(e.title)}</strong><br>${e.start ? hoursLabel(e) : esc(e.address || '')}<br>${links}`)
         .addTo(m);
       mk.on('click', () => highlight(i, false));
       markers.push(mk);
@@ -174,8 +176,11 @@
     a.href = `mailto:${to}?subject=${encodeURIComponent(a.dataset.subject)}&body=${encodeURIComponent(a.dataset.body)}`;
   });
 
-  // ---------- day pages ----------
-  if (DATA.mode === 'day') {
+  // ---------- pages without calendar data (festivals, 404) ----------
+  if (DATA.mode === 'static') return;
+
+  // ---------- day, Heuriger and weekend pages ----------
+  if (DATA.mode === 'day' || DATA.mode === 'places') {
     const events = DATA.events;
     renderMap(events, events.map(() => null));
     bindList();
@@ -298,7 +303,7 @@
             : `${WD_SHORT[d.getDay()]}, ${shortDate(d)} ${from}`;
         when = `<button type="button" class="all-next${iso === todayISO ? ' is-today' : ''}" data-day="${iso}">${rel}</button>`;
       }
-      const name = h.url ? `<a href="${esc(h.url)}" target="_blank" rel="noopener">${esc(h.title)}</a>` : esc(h.title);
+      const name = `<a href="${esc(h.page)}">${esc(h.title)}</a>`;
       return `<li><span class="all-name">${name}</span>${when}</li>`;
     }).join('');
   }

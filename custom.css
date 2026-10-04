@@ -672,6 +672,254 @@ button {
   }
 }
 
+/* ---------- Navigation ---------- */
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 18px;
+  margin-top: 12px;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 2px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--green);
+  border-bottom-color: var(--green);
+}
+
+.breadcrumb {
+  margin: 16px 0 8px;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.breadcrumb a {
+  color: var(--muted);
+}
+
+.more-link {
+  margin: 24px 0 0;
+  text-align: center;
+  font-weight: 600;
+}
+
+.card-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card-title a:hover {
+  color: var(--green);
+  text-decoration: underline;
+}
+
+.answer-left {
+  text-align: left;
+}
+
+.prose p {
+  max-width: 680px;
+  margin: 0 0 12px;
+}
+
+/* ---------- Heuriger page ---------- */
+.layout-place {
+  margin-top: 8px;
+}
+
+.place {
+  padding: 4px 0;
+}
+
+.place-title {
+  font-size: clamp(1.9rem, 6vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.place-address {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.place-status {
+  display: inline-block;
+  margin: 16px 0;
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  font-weight: 600;
+}
+
+.place-status.is-today {
+  background: var(--green-soft);
+  border-color: transparent;
+  color: var(--green-dark);
+}
+
+#map.map-small {
+  height: 240px;
+}
+
+.months {
+  display: grid;
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.month h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+  color: var(--green);
+}
+
+.date-list,
+.fest-open {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.date-list li,
+.fest-open li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 2px;
+  border-bottom: 1px solid var(--line);
+  font-variant-numeric: tabular-nums;
+}
+
+.date-list li.is-today {
+  font-weight: 700;
+  color: var(--green-dark);
+}
+
+.date-hours,
+.fest-open span {
+  color: var(--muted);
+}
+
+.chip-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip-links a {
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.92rem;
+}
+
+.chip-links a:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+/* ---------- Weekend page ---------- */
+.weekend {
+  display: grid;
+  gap: 24px;
+}
+
+.weekend-day h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.weekend-count {
+  padding: 1px 9px;
+  border-radius: 999px;
+  background: var(--green-soft);
+  color: var(--green-dark);
+  font-size: 0.85rem;
+}
+
+.card-compact {
+  grid-template-areas: "num body badge";
+  padding: 10px 12px;
+}
+
+/* ---------- Festivals ---------- */
+.fest-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.fest-list a {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  height: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.fest-list a:hover {
+  border-color: var(--green);
+}
+
+.fest-list strong {
+  color: var(--green);
+}
+
+.fest-list span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- FAQ ---------- */
+.faq details {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq details:first-of-type {
+  border-top: 1px solid var(--line);
+}
+
+.faq summary {
+  padding: 12px 2px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.faq summary:hover {
+  color: var(--green);
+}
+
+.faq details p {
+  margin: 0 0 14px;
+  padding: 0 2px;
+  max-width: 720px;
+  color: var(--muted);
+}
+
 /* ---------- Footer ---------- */
 .site-footer {
   margin-top: 56px;
@@ -680,6 +928,14 @@ button {
   text-align: center;
   color: var(--muted);
   font-size: 0.85rem;
+}
+
+.footer-links {
+  line-height: 1.9;
+}
+
+.footer-links a {
+  color: var(--muted);
 }
 
 .site-footer p {
@@ -706,6 +962,12 @@ button {
   }
   .why-grid {
     grid-template-columns: 1fr 1fr;
+  }
+  .fest-list {
+    grid-template-columns: 1fr 1fr;
+  }
+  .months {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   }
 }
 

@@ -1,449 +1,173 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://auschecktis.at</loc>
+    <loc>https://auschecktis.at/</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-10-04.html</loc>
+    <loc>https://auschecktis.at/heute/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-05.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-06.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-07.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-08.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-09.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-10.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-11.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-12.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-13.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-14.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-15.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-16.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-17.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-18.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-19.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-20.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-21.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-22.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-23.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-24.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-25.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-26.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-27.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-28.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-29.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-30.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-10-31.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-01.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-02.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-03.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-04.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-11-05.html</loc>
+    <loc>https://auschecktis.at/morgen/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-11-06.html</loc>
+    <loc>https://auschecktis.at/wochenende/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-07.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-08.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-09.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-10.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-11.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-12.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-13.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-14.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-15.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-16.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-17.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-18.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-19.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-20.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-21.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-22.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-23.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-24.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-25.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-26.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-27.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-28.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-11-29.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-11-30.html</loc>
+    <loc>https://auschecktis.at/heuriger/ausblick-wien/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-12-01.html</loc>
+    <loc>https://auschecktis.at/heuriger/bartholomaeus-huette/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-12-02.html</loc>
+    <loc>https://auschecktis.at/heuriger/bernreiters-marillengartl/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-12-03.html</loc>
+    <loc>https://auschecktis.at/heuriger/biohof-n5/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-12-04.html</loc>
+    <loc>https://auschecktis.at/heuriger/dornroeschenkeller/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-12-05.html</loc>
+    <loc>https://auschecktis.at/heuriger/gerhard-klager/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-12-06.html</loc>
+    <loc>https://auschecktis.at/heuriger/helmut-krenek/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-12-07.html</loc>
+    <loc>https://auschecktis.at/heuriger/kammerer-junior/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-12-08.html</loc>
+    <loc>https://auschecktis.at/heuriger/keller-am-berg/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-12-09.html</loc>
+    <loc>https://auschecktis.at/heuriger/presshaus/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-12-10.html</loc>
+    <loc>https://auschecktis.at/heuriger/reinbacher/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-12-11.html</loc>
+    <loc>https://auschecktis.at/heuriger/schreckenschlager/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-12-12.html</loc>
+    <loc>https://auschecktis.at/heuriger/szuerts-suchel/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-12-13.html</loc>
+    <loc>https://auschecktis.at/heuriger/weingut-walter/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-12-14.html</loc>
+    <loc>https://auschecktis.at/heuriger/weinhandwerk/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-12-15.html</loc>
+    <loc>https://auschecktis.at/heuriger/wieninger/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-12-16.html</loc>
+    <loc>https://auschecktis.at/heuriger/wieninger-next-pop-up/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-12-17.html</loc>
+    <loc>https://auschecktis.at/heuriger/winzerhof-leopold/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-12-18.html</loc>
+    <loc>https://auschecktis.at/heuriger/zum-gustl/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-12-19.html</loc>
+    <loc>https://auschecktis.at/heuriger/zur-christl/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-12-20.html</loc>
+    <loc>https://auschecktis.at/heuriger/zur-duschl/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-12-21.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-12-22.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-12-23.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-12-24.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-12-25.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-12-26.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://auschecktis.at/day/2026-12-27.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <loc>https://auschecktis.at/feste/mailuefterl/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-12-28.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <loc>https://auschecktis.at/feste/stammersdorfer-weintage/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-12-29.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <loc>https://auschecktis.at/feste/wiener-weinwandertag/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://auschecktis.at/day/2026-12-30.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <loc>https://auschecktis.at/feste/stuermische-tage/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
