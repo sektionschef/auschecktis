@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Wieninger.next Pop-up",
+    "start": "2026-10-10T12:00:00",
+    "end": "2026-10-10T22:00:00",
+    "url": "https://www.wieningernext.at/heuriger/",
+    "mapLink": "https://www.google.com/maps/search/?api=1&query=Krottenhofgasse+155,+1210+Wien",
+    "lat": 48.307458,
+    "lng": 16.399127
+  },
+  {
+    "title": "Wieninger.next Pop-up",
+    "start": "2026-10-11T12:00:00",
+    "end": "2026-10-11T22:00:00",
+    "url": "https://www.wieningernext.at/heuriger/",
+    "mapLink": "https://www.google.com/maps/search/?api=1&query=Krottenhofgasse+155,+1210+Wien",
+    "lat": 48.307458,
+    "lng": 16.399127
+  }
+]

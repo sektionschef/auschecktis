@@ -3,6 +3,9 @@
 
 set -e
 
+echo "🔍 Validating data..."
+python3 validate_data.py
+
 echo "🏗️  Building static site..."
 python3 build_static_site.py
 

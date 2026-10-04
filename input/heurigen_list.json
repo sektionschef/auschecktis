@@ -29,7 +29,7 @@
     "wieninger": {
         "label": "Wieninger",
         "website": "https://heuriger-wieninger.at/",
-        "link_opening_hours_page": "https://heuriger-wieninger.at/",
+        "link_opening_hours_page": "",
         "comment": "Die Öffnungszeiten auf der Website sind nicht eindeutig. Die sichere Variante ist folgende: Samstag 12:00 - 00:00 und Sonntag & Feiertags 12:00 - 22:00 Uhr",
         "location": "https://maps.app.goo.gl/BVXh2eVXX8NrVKWQ7",
         "lat": 48.301319,
@@ -38,7 +38,7 @@
     "goebel": {
         "label": "Helmut Krenek",
         "website": "https://www.helmut-krenek.at/",
-        "link_opening_hours_page": "https://www.helmut-krenek.at/",
+        "link_opening_hours_page": "",
         "comment": "",
         "location": "https://maps.app.goo.gl/nz4UDcfQR89Ji6Fm7",
         "lat": 48.31041,
@@ -56,7 +56,7 @@
     "lentner_koarl": {
         "label": "Keller am Berg",
         "website": "https://www.keller-am-berg.at/",
-        "link_opening_hours_page": "https://www.keller-am-berg.at/",
+        "link_opening_hours_page": "",
         "comment": "Die Öffnungszeiten sind Samstag, Sonntag u. Feiertag ab 14:00 Uhr",
         "location": "https://maps.app.goo.gl/vvD53RYnfxnHiCm98",
         "lat": 48.303654,
@@ -65,7 +65,7 @@
     "leopold": {
         "label": "Winzerhof Leopold",
         "website": "https://www.klager.at",
-        "link_opening_hours_page": "https://www.klager.at",
+        "link_opening_hours_page": "",
         "comment": "",
         "location": "https://maps.app.goo.gl/MQRQRNUwhp2N9krm9",
         "lat": 48.301991,
@@ -73,17 +73,17 @@
     },
     "reinbacher": {
         "label": "Reinbacher",
-        "website": "http://www.stammersdorf.com/index.php/heurige/reinbacher",
-        "link_opening_hours_page": "http://www.stammersdorf.com/index.php/heurige/reinbacher",
-        "comment": "MO-FR 14:00 in folgendem Zeitraum von 13.1.-31.1. 22.4.-16.5. 2.6.-27.6. 9.6. geschl. 24.2.-28.3. 4.8.-5.9. 6.10.-7.11. / 1.12. -30.12",
+        "website": "https://www.wienerwein.at/betrieb/4158300/buschenschank-reinbacher",
+        "link_opening_hours_page": "",
+        "comment": "",
         "location": "https://maps.app.goo.gl/JGnLhrKxq3E1YwJe6",
-        "lat": 48.299349,
-        "lng": 16.420162
+        "lat": 48.299416,
+        "lng": 16.420275
     },
     "klager": {
         "label": "Gerhard Klager",
         "website": "https://www.weingutklager.at/",
-        "link_opening_hours_page": "https://www.weingutklager.at/",
+        "link_opening_hours_page": "",
         "comment": "hier ist ein genauer Plan als pdf lokal gespeichert: input/WeingutKlager_2026_105x74mm_final.pdf",
         "location": "https://maps.app.goo.gl/kFDSYZwJ7ZJjXGkW8",
         "lat": 48.302043,
@@ -92,8 +92,8 @@
     "dornroeschenkeller": {
         "label": "Dornröschenkeller",
         "website": "https://www.wienerwein.at/betrieb/4334329/dornroeschenkeller-familie-vrbicky",
-        "link_opening_hours_page": "https://www.wienerwein.at/betrieb/4334329/dornroeschenkeller-familie-vrbicky",
-        "comment": "8. März - 21. Dezember 2025 | März, April, Mai, Juli, August, Oktober, November: ab 2. Samstag 16 Tage lang geöffnet | Monaten März, April, Mai, Juli, August, Oktober, November ab 2. Samstag 16 Tage lang geöffnet. Im Dezember bis am 3. Adventsonntag. 16 Tage-Block: täglich 14.00 bis 23.00 Uhr (Montag bis Sonntag und Feiertag)",
+        "link_opening_hours_page": "",
+        "comment": "",
         "location": "https://maps.app.goo.gl/hAc5sih71HKBRAQ58",
         "lat": 48.304676,
         "lng": 16.405246
@@ -111,7 +111,7 @@
         "label": "Zum Gustl",
         "website": "https://manuelnoessing.com/buschenschank/",
         "link_opening_hours_page": "",
-        "comment": "FR-S0: 12:00 im Zeitraum von Ende April bis Mitte Juli / September / Oktober",
+        "comment": "",
         "location": "https://maps.app.goo.gl/9wZRCPRvie7xRhq59",
         "lat": 48.309052471420365,
         "lng": 16.402192471156756
@@ -119,7 +119,7 @@
     "kammerer": {
         "label": "Kammerer junior",
         "website": "https://www.buschenschank-kammererjunior.com/",
-        "link_opening_hours_page": "https://www.buschenschank-kammererjunior.com/",
+        "link_opening_hours_page": "",
         "comment": "Öffnungszeiten beziehen sich auf das ganze Jahr.",
         "location": "https://maps.app.goo.gl/iuQx22fyfP7ZWwaS9",
         "lat": 48.310394,
@@ -128,8 +128,8 @@
     "weinhandwerk": {
         "label": "Weinhandwerk",
         "website": "https://www.weinhandwerk.at/",
-        "link_opening_hours_page": "https://www.weinhandwerk.at/",
-        "comment": "FR+SA: 15:00, SO: 12:00 im Zeitraum von 28.4.-19.10.",
+        "link_opening_hours_page": "",
+        "comment": "",
         "location": "https://maps.app.goo.gl/WRito6P5jyQ3UQPy9",
         "lat": 48.311834,
         "lng": 16.397312
@@ -164,10 +164,28 @@
     "szuets": {
         "label": "Szürts/Suchel",
         "website": "https://weinbausuchel.at/",
-        "link_opening_hours_page": "https://weinbausuchel.at/",
+        "link_opening_hours_page": "",
         "comment": "",
         "location": "https://maps.app.goo.gl/tx3geHLXfFNfKpbt7",
         "lat": 48.307472,
         "lng": 16.395853
+    },
+    "wieninger_next": {
+        "label": "Wieninger.next Pop-up",
+        "website": "https://www.wieningernext.at/heuriger/",
+        "link_opening_hours_page": "",
+        "comment": "Pop-up-Heuriger an einzelnen Wochenenden, Termine stehen als Bild (Plakat) auf der Website.",
+        "location": "https://www.google.com/maps/search/?api=1&query=Krottenhofgasse+155,+1210+Wien",
+        "lat": 48.307458,
+        "lng": 16.399127
+    },
+    "schreckenschlager": {
+        "label": "Schreckenschlager",
+        "website": "https://www.wienerwein.at/betrieb/4164407/buschenschank-schreckenschlager",
+        "link_opening_hours_page": "",
+        "comment": "Laut Profil sind die Aussteckzeiten telefonisch zu erfragen (0664 4618055).",
+        "location": "https://www.google.com/maps/search/?api=1&query=Stammersdorfer+Kellergasse+75,+1210+Wien",
+        "lat": 48.308049,
+        "lng": 16.402719
     }
 }

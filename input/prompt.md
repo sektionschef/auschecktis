@@ -23,7 +23,7 @@ Hier ist ein Beispiel für einen Eintrag in der Heurigenliste:
 * **presshaus** ist die interne Bezeichnung des Betriebs. Diese hat keine Relevanz für Außenstehende. Sie wird für den Dateinamen des resultierenden Kalender-JSON pro Heurigen verwendet.
 * **label** ist die offizielle Bezeichnung für den Heurigen. Diese wird im Zielformat als **title** für den Kalendereintrag angezeigt.
 * **website** ist der Link zur Website des Betriebs.
-* **link_opening_hours_page** ist der Link zur Seite, auf der die Öffnungszeiten des Betriebes zu finden sind.
+* **link_opening_hours_page** ist der Link zur Seite, auf der die Öffnungszeiten des Betriebes zu finden sind. Das Feld ist leer, wenn die Öffnungszeiten direkt auf der **website** stehen.
 * **comment** ist ein Feld für Expertenkommentare, hier können Informationen von lokalen Experten enthalten sein, die Informationen der angegebenen Quellen ergänzen.
 * **location** ist der Link zum Google Maps Profil des Heurigen, um die Wegbeschreibung für Besucherinnen bequem starten zu können.
 * **lat** ist der Breitengrad (latitude) des Heurigen für die Kartendarstellung.
@@ -61,7 +61,7 @@ Wichtige Anweisungen
 * Falls eine tägliche Endzeit fehlt oder 00:00 beträgt verwende bitte 23:59 Uhr.
 * Falls eine tägliche Startzeit fehlt verwende bitte 18 Uhr.
 * Versuche nicht eigenständig PDFs aus dem Internet herunterzuladen oder zu interpretieren. Melde aber bitte dem Benutzer, falls die Öffnungszeiten in einem PDF verfügbar sind. Ausnahme: Verweist das **comment** Feld auf eine lokal gespeicherte PDF (z. B. im Ordner **input**), ist diese die maßgebliche Quelle und soll ausgewertet werden.
-* Folge ausschließlich den angegebenen Seiten unter **link_opening_hours_page**. Ist das Feld leer, gelten die Angaben im **comment** Feld.
+* Folge ausschließlich der Seite unter **link_opening_hours_page**. Ist das Feld leer, stehen die Öffnungszeiten direkt auf der Seite unter **website**.
 * Die Zeitzone ist immer Wien, Österreich. Bitte verwende diese explizit.
 * Falls eine Seite nicht erreichbar ist oder 404 zurückmeldet, gib einen Fehler zurück.
 * Websites nutzen oft dt. Monatsabkürzungen („Jän", „März"). Bitte ordne diese den Monaten zu.

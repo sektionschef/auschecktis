@@ -8,7 +8,13 @@ import json
 import os
 from datetime import datetime, timedelta
 from typing import Dict, List, Any
+from zoneinfo import ZoneInfo
 import re
+
+
+def vienna_today():
+    """Current date in Vienna (the CI runner uses UTC)"""
+    return datetime.now(ZoneInfo("Europe/Vienna")).date()
 
 
 class HeurigenSiteGenerator:
@@ -139,10 +145,16 @@ class HeurigenSiteGenerator:
         dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
         return dt.strftime("%H:%M")
 
+    def format_opening_hours(self, event: Dict[str, Any]) -> str:
+        """Opening hours label, e.g. "14:00–22:00 Uhr" or "ab 14:00 Uhr" without a fixed end"""
+        start_time = self.format_time_german(event["start"])
+        end_time = self.format_time_german(event["end"])
+        if end_time == "23:59":
+            return f"ab {start_time} Uhr"
+        return f"{start_time}–{end_time} Uhr"
+
     def generate_event_html(self, event: Dict[str, Any]) -> str:
         """Generate HTML for a single event with microdata"""
-        heurigen_data = event.get("heurigen_data", {})
-        start_time = self.format_time_german(event["start"])
         map_link = event.get("mapLink", "")
 
         return f"""
@@ -150,8 +162,9 @@ class HeurigenSiteGenerator:
             <h4 itemprop="name">{event['title']}</h4>
             <div class="event-details">
                 <time itemprop="startDate" datetime="{event['start']}" class="text-muted">
-                    ab {start_time} Uhr
+                    {self.format_opening_hours(event)}
                 </time>
+                <meta itemprop="endDate" content="{event['end']}">
                 <div itemprop="location" itemscope itemtype="https://schema.org/Place">
                     <span itemprop="name" class="d-none">{event['title']}</span>
                     <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
@@ -318,10 +331,15 @@ class HeurigenSiteGenerator:
 
     def generate_index_page(self, events: List[Dict[str, Any]]) -> str:
         """Generate main index page with interactive map and date navigation"""
-        today = datetime.now().date()
+        today = vienna_today().isoformat()
 
-        # Generate all events data as JSON for JavaScript
-        events_json = json.dumps(events, ensure_ascii=False, indent=2)
+        # Only upcoming events, and only the fields the page uses
+        fields = ["title", "start", "end", "url", "mapLink", "lat", "lng"]
+        upcoming = [
+            {f: e[f] for f in fields if f in e} for e in events if e["start"][:10] >= today
+        ]
+        events_json = json.dumps(upcoming, ensure_ascii=False, indent=2)
+        last_date = max((e["start"][:10] for e in upcoming), default=today)
 
         return f"""<!DOCTYPE html>
 <html lang="de">
@@ -390,8 +408,8 @@ class HeurigenSiteGenerator:
         // Wait for DOM to be ready
         document.addEventListener('DOMContentLoaded', function() {{
             const today = new Date();
-            const maxDate = new Date(today);
-            maxDate.setDate(today.getDate() + 7);
+            // Browse until the last known opening day
+            const maxDate = new Date('{last_date}T00:00:00');
             
             let currentDate = new Date(today);
             
@@ -400,6 +418,12 @@ class HeurigenSiteGenerator:
             const prevBtn = document.getElementById('prev-day');
             const nextBtn = document.getElementById('next-day');
             
+            function formatHours(event) {{
+                const start = event.start.slice(11, 16);
+                const end = event.end.slice(11, 16);
+                return end === '23:59' ? `ab ${{start}} Uhr` : `${{start}}–${{end}} Uhr`;
+            }}
+
             function formatDate(date) {{
                 return date.toLocaleDateString('de-AT', {{ weekday: 'long', year: 'numeric', month: '2-digit', day: '2-digit' }});
             }}
@@ -469,7 +493,7 @@ class HeurigenSiteGenerator:
                     openToday.forEach(event => {{
                         const li = document.createElement('li');
                         li.innerHTML = `<strong><a href="${{event.url}}" target="_blank">${{event.title}}</a></strong> 
-            (ab ${{event.start.slice(11, 16)}} Uhr)`;
+            (${{formatHours(event)}})`;
                         ul.appendChild(li);
             
                         // Add marker if possible
@@ -595,10 +619,9 @@ class HeurigenSiteGenerator:
 
     def generate_sitemap(self, start_date, end_date):
         """Generate XML sitemap for SEO"""
-        from datetime import datetime
 
         base_url = "https://auschecktis.at"
-        now = datetime.now().strftime("%Y-%m-%dT%H:%M:%S+00:00")
+        now = vienna_today().isoformat()
 
         sitemap_urls = []
 
@@ -614,7 +637,6 @@ class HeurigenSiteGenerator:
             sitemap_urls.append(
                 {
                     "loc": f"{base_url}/day/{date_str}.html",
-                    "lastmod": now,
                     "changefreq": "daily",
                     "priority": "0.8",
                 }
@@ -628,7 +650,8 @@ class HeurigenSiteGenerator:
         for url in sitemap_urls:
             sitemap_xml += "  <url>\n"
             sitemap_xml += f'    <loc>{url["loc"]}</loc>\n'
-            sitemap_xml += f'    <lastmod>{url["lastmod"]}</lastmod>\n'
+            if "lastmod" in url:
+                sitemap_xml += f'    <lastmod>{url["lastmod"]}</lastmod>\n'
             sitemap_xml += f'    <changefreq>{url["changefreq"]}</changefreq>\n'
             sitemap_xml += f'    <priority>{url["priority"]}</priority>\n'
             sitemap_xml += "  </url>\n"
@@ -663,7 +686,7 @@ class HeurigenSiteGenerator:
         print("📄 Generated index.html")
 
         # Generate daily pages
-        today = datetime.now().date()
+        today = vienna_today()
 
         # Generate pages up to the latest event date
         latest_date = today
