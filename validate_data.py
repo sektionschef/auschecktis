@@ -9,7 +9,7 @@ import os
 import sys
 from datetime import datetime
 
-REQUIRED_MASTER_FIELDS = ["label", "website", "link_opening_hours_page", "comment", "location", "lat", "lng"]
+REQUIRED_MASTER_FIELDS = ["label", "website", "address", "link_opening_hours_page", "comment", "location", "lat", "lng"]
 REQUIRED_EVENT_FIELDS = ["title", "start", "end"]
 
 

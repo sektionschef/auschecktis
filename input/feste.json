@@ -1,0 +1,38 @@
+[
+    {
+        "slug": "mailuefterl",
+        "name": "Mailüfterl",
+        "description": "Das Frühlingsfest in der Stammersdorfer Kellergasse: Anfang Mai öffnen die Weinkeller und Buschenschanken entlang der Kellergasse, dazu gibt es Musik, Kulinarik und Programm für Familien.",
+        "location": "Stammersdorfer Kellergasse",
+        "dates": [
+            {"start": "2026-05-02T13:00:00", "end": "2026-05-03T22:00:00"}
+        ]
+    },
+    {
+        "slug": "stammersdorfer-weintage",
+        "name": "Stammersdorfer Weintage",
+        "description": "Ende August wird die Stammersdorfer Straße zur Festmeile. Herzstück ist das Weindorf, in dem Winzer:innen aus Stammersdorf, Strebersdorf und Jedlersdorf ihre Weine ausschenken.",
+        "location": "Stammersdorfer Straße",
+        "dates": [
+            {"start": "2026-08-29T13:00:00", "end": "2026-08-30T23:00:00"}
+        ]
+    },
+    {
+        "slug": "wiener-weinwandertag",
+        "name": "Wiener Weinwandertag",
+        "description": "Beim Wiener Weinwandertag führt eine Route durch die Weingärten von Stammersdorf und Strebersdorf. Entlang des Weges schenken Heurige und Buschenschanken aus.",
+        "location": "Weingärten Stammersdorf und Strebersdorf",
+        "dates": [
+            {"start": "2026-09-26", "end": "2026-09-27"}
+        ]
+    },
+    {
+        "slug": "stuermische-tage",
+        "name": "Stürmische Tage",
+        "description": "Das Kellergassenfest zur Sturmzeit Anfang Oktober: Sturm, Maroni und junger Wein in den Kellern und Buschenschanken der Stammersdorfer Kellergasse.",
+        "location": "Stammersdorfer Kellergasse",
+        "dates": [
+            {"start": "2026-10-03T13:00:00", "end": "2026-10-04T22:00:00"}
+        ]
+    }
+]

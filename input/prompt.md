@@ -10,6 +10,7 @@ Hier ist ein Beispiel für einen Eintrag in der Heurigenliste:
     "presshaus": {
         "label": "Presshaus",
         "website": "https://biohof-steindl.at/",
+        "address": "Clessgasse 63",
         "link_opening_hours_page": "https://biohof-steindl.at/?p=1281",
         "comment": "",
         "location": "https://maps.app.goo.gl/vNFmAdBddrLGkxpA7",
@@ -23,6 +24,7 @@ Hier ist ein Beispiel für einen Eintrag in der Heurigenliste:
 * **presshaus** ist die interne Bezeichnung des Betriebs. Diese hat keine Relevanz für Außenstehende. Sie wird für den Dateinamen des resultierenden Kalender-JSON pro Heurigen verwendet.
 * **label** ist die offizielle Bezeichnung für den Heurigen. Diese wird im Zielformat als **title** für den Kalendereintrag angezeigt.
 * **website** ist der Link zur Website des Betriebs.
+* **address** ist die Straßenadresse in 1210 Wien. Sie wird für die Seite des Heurigen verwendet, nicht für die Kalendereinträge.
 * **link_opening_hours_page** ist der Link zur Seite, auf der die Öffnungszeiten des Betriebes zu finden sind. Das Feld ist leer, wenn die Öffnungszeiten direkt auf der **website** stehen.
 * **comment** ist ein Feld für Expertenkommentare, hier können Informationen von lokalen Experten enthalten sein, die Informationen der angegebenen Quellen ergänzen.
 * **location** ist der Link zum Google Maps Profil des Heurigen, um die Wegbeschreibung für Besucherinnen bequem starten zu können.

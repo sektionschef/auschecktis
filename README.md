@@ -58,6 +58,7 @@ input/
   assets/                          static assets copied verbatim into generated/ (CSS, icons, CNAME, favicons, fonts)
     custom.css                     all page styles (light + dark mode), no CSS framework
     app.js                         day strip, live "jetzt offen" status, list + map, next-opening overview
+  feste.json                       Kellergasse festivals (name, description, dates) for /feste/<slug>/
   qr_codes/                        printable QR-code flyer (index.html + SVG)
 data/
   <key>.json                       opening-hour events per Heuriger
@@ -77,6 +78,7 @@ build.sh                           build script (used locally and by CI)
 "presshaus": {
     "label": "Presshaus",
     "website": "https://biohof-steindl.at/",
+    "address": "Clessgasse 63",
     "link_opening_hours_page": "https://biohof-steindl.at/?page_id=7",
     "comment": "",
     "location": "https://maps.app.goo.gl/vNFmAdBddrLGkxpA7",
@@ -86,7 +88,10 @@ build.sh                           build script (used locally and by CI)
 ```
 
 - `presshaus` (the key) is the internal id, used as the filename for `data/<key>.json`.
-- `label` → event `title`.
+- `label` → event `title`, and the URL of the Heuriger's page (`/heuriger/<slug>/`, e.g.
+  "Zur Christl" → `/heuriger/zur-christl/`). Renaming a label changes that URL.
+- `address` is the street address in 1210 Wien (used on the Heuriger page and in the
+  structured data).
 - `website` / `location` (Google Maps link) / `lat` / `lng` are copied onto every event.
 - `link_opening_hours_page` is the **only** page that should be consulted for hours. It is
   left empty when the hours are on the `website` itself — then use `website`.
@@ -183,36 +188,29 @@ cd generated && python3 -m http.server 8000
 - Note: GitHub disables scheduled workflows after 60 days without repository activity —
   re-enable it in the Actions tab if that happens.
 
-## SEO features
+## Pages & SEO
 
-### JSON-LD structured data
-Each event includes complete Schema.org markup:
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "Event",
-  "name": "Presshaus - Ausg'steckt",
-  "startDate": "2025-10-31T15:00:00",
-  "location": {
-    "@type": "Place",
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 48.303258,
-      "longitude": 16.410771
-    }
-  }
-}
-```
+| URL | Content | Indexed |
+|---|---|---|
+| `/` | Today's answer, day strip, list + map, next opening of every Heuriger, festivals, FAQ | yes |
+| `/heute/`, `/morgen/` | Who is open today / tomorrow (rebuilt daily) | yes |
+| `/wochenende/` | Friday–Sunday of the current or next weekend | yes |
+| `/heuriger/<slug>/` | One page per Heuriger: address, next opening, all upcoming dates, map | yes |
+| `/feste/<slug>/` | Mailüfterl, Weintage, Weinwandertag, Stürmische Tage: date and who is open | yes |
+| `/day/YYYY-MM-DD.html` | One page per day (for shared links) | no (`noindex`) |
+| `/404.html` | Not-found page (GitHub Pages) | no |
 
-### Microdata in HTML
-```html
-<div itemscope itemtype="https://schema.org/Event">
-  <h4 itemprop="name">Presshaus</h4>
-  <time itemprop="startDate" datetime="2025-10-31T15:00:00">
-    ab 15:00 Uhr
-  </time>
-</div>
-```
+### Structured data (JSON-LD)
+
+- Every Heuriger is a `Winery` with street address, coordinates and
+  `openingHoursSpecification` (one entry per opening day for the next 8 weeks, with
+  `validFrom`/`validThrough`).
+- Lists (`/`, `/heute/`, `/morgen/`, `/wochenende/`) are `ItemList`s linking to the
+  Heuriger pages; Heuriger and festival pages have a `BreadcrumbList`.
+- `Event` is **only** used for festivals with an upcoming date. Opening hours are not
+  marked up as events — Google's guidelines forbid "business hours as events".
+- To add a festival date, add `{"start": ..., "end": ...}` to `input/feste.json`
+  (`YYYY-MM-DDTHH:MM:SS`, or just `YYYY-MM-DD` if the times are unknown).
 
 ## Icons
 
